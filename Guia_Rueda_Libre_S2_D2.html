@@ -1,0 +1,595 @@
+<!doctype html><html lang="es"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Guía Rueda Libre Semana 2 Día 2</title><style>body{margin:0;background:#f6f4fa;color:#202331;font:18px/1.75 system-ui,sans-serif}header,main{max-width:960px;margin:auto;padding:32px}header{padding-bottom:0}section{background:white;margin:24px 0;padding:40px;border-radius:14px;box-shadow:0 5px 25px #19103a08}h1,h2,h3{color:#111;line-height:1.2}h1{font-size:42px}h2{font-size:30px}h3{font-size:22px;margin-top:30px}.eyebrow{font-size:12px;letter-spacing:.1em;color:#6944b2;font-weight:800}pre{background:#f1f2f6;border:1px solid #dddfe7;border-radius:8px;padding:20px;overflow:auto;font:14px/1.65 Consolas,monospace;white-space:pre}table{width:100%;border-collapse:collapse;font-size:15px;margin:24px 0}td,th{padding:12px;text-align:left;border:1px solid #d9d9d9;vertical-align:top}th{background:#eeeaf7}aside{padding:18px 22px;background:#f3effa;border-left:4px solid #7755bd;margin:24px 0}a{color:#52339a;overflow-wrap:anywhere}nav{columns:2;font-size:14px}nav a{display:block;margin:6px 0}@media(max-width:600px){main,header{padding:14px}section{padding:22px}nav{columns:1}}@media print{body{background:white}header nav{display:none}section{break-before:page;box-shadow:none;margin:0;padding:0}pre{white-space:pre-wrap;font-size:9px}main{padding:0}}</style><header><p class="eyebrow">RIWI · CLAN NAKAMOTO</p><h1>Guía de Bootstrap<br>Semana 2 Día 2</h1><p>Ejemplos de código seleccionables para acompañar el proyecto base.</p><nav>
+<a href="#s0">01 De CSS propio a Bootstrap</a>
+<a href="#s1">02 Reconoce el proyecto antes de editar</a>
+<a href="#s2">03 Guarda un punto de partida</a>
+<a href="#s3">04 Entiende qué aporta un framework</a>
+<a href="#s4">05 Lee la grilla de doce partes</a>
+<a href="#s5">06 Comprende los breakpoints</a>
+<a href="#s6">07 Crea la página de prueba</a>
+<a href="#s7">08 Reconstruye la flota sin CSS propio</a>
+<a href="#s8">09 Aprende a leer las utilidades</a>
+<a href="#s9">10 Construye los cuatro beneficios</a>
+<a href="#s10">11 Organiza la llamada a la acción</a>
+<a href="#s11">12 Lleva Bootstrap a inicio</a>
+<a href="#s12">13 Migra las secciones de inicio</a>
+<a href="#s13">14 Migra el encabezado y el pie</a>
+<a href="#s14">15 Resuelve conflictos con DevTools</a>
+<a href="#s15">16 Organiza tarifas con la grilla</a>
+<a href="#s16">17 Organiza reservas sin perder campos</a>
+<a href="#s17">18 Entiende la validación que conservas</a>
+<a href="#s18">19 Limpia el CSS con un criterio claro</a>
+<a href="#s19">20 Prueba antes de dar por terminada la migración</a>
+<a href="#s20">21 Documenta la comparación con honestidad</a>
+<a href="#s21">22 Guarda y publica la versión beta</a>
+<a href="#s22">23 Si algo falla encuentra la causa</a>
+<a href="#s23">24 Guion para enseñar y volver a consultar</a>
+</nav></header><main>
+<section id="s0"><div class="eyebrow">NAKAMOTO · SEMANA 2 · DÍA 2</div><h2>De CSS propio a Bootstrap</h2>
+<p>Esta guía te acompaña para transformar Rueda Libre v1.5 en v2.0-beta. Partimos de un sitio que ya funciona con HTML, CSS, Flexbox y Grid. Hoy vamos a cambiar cómo se distribuye el contenido, conservar sus datos y comprobar que el formulario sigue validando igual.</p>
+<h3>Qué debes tener abierto</h3>
+<p>Extrae Rueda_Libre_Base_S2_D1.zip y abre rueda-libre-v1.5 en VS Code. Abre index.html con Live Server. Deja también el navegador y sus herramientas de desarrollo a mano. Necesitarás internet para cargar Bootstrap desde el CDN; las ilustraciones del proyecto son locales.</p>
+<h3>Cómo trabajar con esta guía</h3>
+<p>Lee la explicación, realiza el cambio en el archivo indicado y comprueba el resultado antes de seguir. Los bloques con comentarios como «conserva aquí los demás campos» muestran dónde va tu contenido existente; ese comentario no reemplaza el contenido. No borres campos, textos o imágenes para que el ejemplo se parezca más al bloque.</p>
+<table>
+<tr><th>Recorrido</th><th>Resultado que vas a construir</th></tr>
+<tr><td>Preparación y fundamentos</td><td>Referencia en Git, grilla y lectura de clases</td></tr>
+<tr><td>Mini reto 5</td><td>pruebas/catalogo-bootstrap.html con siete modelos</td></tr>
+<tr><td>Mini reto 6</td><td>Beneficios y llamada a la acción con utilidades</td></tr>
+<tr><td>Mini reto 7</td><td>Inicio migrado y conflictos de CSS resueltos</td></tr>
+<tr><td>Mini reto 8</td><td>Tarifas y reservas migradas, pruebas y publicación</td></tr>
+</table>
+<aside>El alcance de hoy es la grilla y las utilidades. La navbar plegable, los componentes card, los modales y la validación visual de Bootstrap pertenecen al día 3. Tu menú actual puede seguir visible y adaptable.</aside>
+<p>El proyecto entregado es una base didáctica creada para esta clase. La bitácora tiene espacios para tus observaciones reales. No incluye tiempos inventados, un historial de commits de los coders ni una publicación ya hecha.</p>
+</section>
+<section id="s1"><div class="eyebrow">PREPARACIÓN 01</div><h2>Reconoce el proyecto antes de editar</h2>
+<table>
+<tr><th>Archivo o carpeta</th><th>Para qué sirve</th></tr>
+<tr><td>index.html</td><td>Inicio con portada, servicios, siete bicicletas y rutas</td></tr>
+<tr><td>paginas/tarifas.html</td><td>Tablas de alquiler y recorridos</td></tr>
+<tr><td>paginas/reservas.html</td><td>Formulario completo y contacto</td></tr>
+<tr><td>css/styles.css</td><td>Identidad visual y distribución actual</td></tr>
+<tr><td>img/</td><td>Logo e ilustraciones SVG locales</td></tr>
+<tr><td>bitacora.txt</td><td>Decisiones, resultados y mediciones</td></tr>
+<tr><td>evidencias/</td><td>Capturas que guardarás durante el trabajo</td></tr>
+</table>
+<h3>Comprueba la base</h3>
+<p>Navega desde cada página hacia las otras dos. En inicio deben aparecer siete modelos, incluido Tándem. En reservas, prueba enviar el formulario vacío: el navegador debe señalar un campo obligatorio. Reduce la ventana a 360 px y revisa que el documento no se desplace horizontalmente.</p>
+<h3>Lo que ya sabes y vas a reutilizar</h3>
+<p>HTML define el significado del contenido: nav sigue siendo navegación y article sigue siendo una unidad con sentido propio. CSS define su presentación. Flexbox organiza elementos en una dirección; Grid permite definir filas y columnas. Bootstrap aplica reglas CSS ya escritas a través de clases. No cambia el significado de las etiquetas.</p>
+<pre>&lt;!-- Una etiqueta puede tener varias clases separadas por espacios. --&gt;
+&lt;article class=&quot;tarjeta bici&quot;&gt;
+  &lt;h3&gt;Urbana Clásica&lt;/h3&gt;
+&lt;/article&gt;</pre>
+<p>tarjeta y bici son nombres que definimos en nuestra hoja CSS. En cambio, col-sm-6 es un nombre definido por Bootstrap. Poner una clase en el HTML solo tendrá efecto si se carga la hoja que contiene su regla.</p>
+<aside>Las imágenes SVG del ejemplo son ilustraciones para practicar rutas y diseño. Si las cambias por fotografías, revisa el nombre del archivo, las mayúsculas, su extensión y el texto alternativo.</aside>
+</section>
+<section id="s2"><div class="eyebrow">PREPARACIÓN 02</div><h2>Guarda un punto de partida</h2>
+<p>Antes de migrar, guarda la versión actual. Así podrás consultar qué cambió y recuperar una referencia sin mantener dos sitios completos dentro del mismo proyecto.</p>
+<h3>Si la carpeta todavía no tiene Git</h3>
+<pre>git init
+git add .
+git commit -m &quot;Base Rueda Libre v1.5&quot;
+git branch -M main
+git tag v1.5-base</pre>
+<p>git init inicia el repositorio local. git add prepara los archivos. git commit guarda una versión. git branch nombra la rama principal. La etiqueta v1.5-base señala el punto anterior a Bootstrap. Si ya tienes un repositorio, conserva su historial: omite git init y crea el commit de referencia solo si hay cambios pendientes.</p>
+<h3>Registra una medición que puedas repetir</h3>
+<p>Abre css/styles.css y anota el número total de líneas antes de cambiarlo. En VS Code, Ctrl + Fin lleva a la última línea y la barra de estado muestra su número. Decide desde ahora contar todas las líneas, incluidas las vacías y los comentarios, y usa el mismo criterio al terminar.</p>
+<pre># Consultar después el CSS inicial sin modificar tus archivos
+git show v1.5-base:css/styles.css</pre>
+<p>Para la comparación de la flota, cuenta por separado las declaraciones de distribución: display, grid-template-columns y gap del bloque .flota. No confundas ese conteo con las líneas totales de la hoja ni con el número de clases de HTML.</p>
+<aside>Si recibiste esta base y no construiste su versión original, escribe «tiempo de construcción original no medido». Sí puedes medir cuánto tardas hoy en reconstruir la flota. Bootstrap puede reducir tu CSS propio y aumentar las clases del HTML; registra ambas cosas.</aside>
+<h3>Antes de continuar</h3>
+<p>Confirma que git status indica un árbol limpio después del commit. No cambies de rama ni restaures archivos para consultar el pasado: git show permite leerlos sin tocar el trabajo actual.</p>
+</section>
+<section id="s3"><div class="eyebrow">FUNDAMENTO 01</div><h2>Entiende qué aporta un framework</h2>
+<p>Imagina que quieres separar dos elementos, centrar un título y organizar cuatro bloques. Con CSS propio escribes las reglas y decides sus valores. Con un framework eliges entre reglas disponibles. Sigues tomando decisiones de diseño: el framework no elige por ti qué debe ser importante ni cómo se entiende el contenido.</p>
+<pre>/* Una regla escrita por nosotros */
+.separacion { padding: 1rem; }
+
+&lt;!-- Una utilidad equivalente de Bootstrap con su escala por defecto --&gt;
+&lt;div class=&quot;p-3&quot;&gt;Contenido con espacio interior&lt;/div&gt;</pre>
+<p>La clase p-3 representa padding de 1rem en los cuatro lados con la configuración predeterminada de Bootstrap. El 3 es una posición en una escala, no tres píxeles. Usar una escala ayuda a repetir espacios coherentes.</p>
+<table>
+<tr><th>Herramienta</th><th>Qué resuelve</th><th>Qué sigues decidiendo</th></tr>
+<tr><td>Grilla</td><td>Anchos y distribución responsive</td><td>Cuántas columnas necesita cada sección</td></tr>
+<tr><td>Utilidades</td><td>Ajustes concretos de CSS</td><td>Espacio, alineación y jerarquía</td></tr>
+<tr><td>Componentes</td><td>Patrones como navbar o modal</td><td>Contenido, comportamiento y personalización</td></tr>
+</table>
+<h3>Por qué no borramos todo el CSS</h3>
+<p>Los colores de Rueda Libre, sus fuentes, el aspecto de sus tablas y los estados de foco pertenecen a su identidad. La migración de hoy mueve la distribución hacia Bootstrap. Mantendremos reglas de marca y controles que ya funcionan.</p>
+<h3>Qué es un CDN</h3>
+<p>Es un servicio que entrega archivos desde una red de servidores. Al usar una URL de CDN, el navegador descarga la hoja CSS o el bundle de JavaScript. Si no hay conexión, ese recurso puede no estar disponible. Fijamos la versión 5.3.8 para que todos practiquemos con los mismos archivos, tal como aparece en el material de la clase.</p>
+<aside>La grilla y las utilidades funcionan con el CSS de Bootstrap. El bundle se carga porque lo pide el reto y quedará listo para los componentes del día 3; no es lo que activa las columnas.</aside>
+</section>
+<section id="s4"><div class="eyebrow">FUNDAMENTO 02</div><h2>Lee la grilla de doce partes</h2>
+<p>La grilla estándar de Bootstrap se organiza con un contenedor, una fila y columnas. Aunque su nombre se traduzca como cuadrícula, esta grilla usa Flexbox por debajo. No es el mismo mecanismo que display: grid de nuestra flota original.</p>
+<pre>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;Primer bloque&lt;/div&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;Segundo bloque&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>container centra el contenido, agrega espacio lateral y limita su ancho según el tamaño de pantalla. row agrupa las columnas y permite que pasen a otra línea. Cada col-* indica cuántas de doce partes ocupa ese bloque. El contenido real queda dentro de la columna. Puedes usar etiquetas semánticas como section o article si mantienen esa relación.</p>
+<table>
+<tr><th>Clase</th><th>Fracción del ancho de la fila</th><th>Resultado con bloques iguales</th></tr>
+<tr><td>col-12</td><td>12 / 12 = todo el ancho</td><td>1 por fila</td></tr>
+<tr><td>col-6</td><td>6 / 12 = la mitad</td><td>2 por fila</td></tr>
+<tr><td>col-4</td><td>4 / 12 = un tercio</td><td>3 por fila</td></tr>
+<tr><td>col-3</td><td>3 / 12 = un cuarto</td><td>4 por fila</td></tr>
+</table>
+<h3>De dónde sale el espacio entre columnas</h3>
+<p>g-4 configura gutters horizontales y verticales de 1.5rem en la escala predeterminada. En horizontal se construyen con relleno en las columnas y márgenes negativos en la fila. Por eso no conviene dejar una row sin un contenedor apropiado: puede sobresalir. gx-* y gy-* permiten variar cada dirección por separado.</p>
+<aside>No pongas siete artículos sueltos junto a las columnas. Cada bicicleta necesita su propia envoltura col-*. Si un bloque ocupa más espacio del que queda en la fila, pasa a la siguiente; no tiene que completarse una fila de doce antes de cerrar el HTML.</aside>
+</section>
+<section id="s5"><div class="eyebrow">FUNDAMENTO 03</div><h2>Comprende los breakpoints</h2>
+<p>Un breakpoint es un ancho a partir del cual se aplica un cambio. Bootstrap trabaja mobile-first: primero define el tamaño pequeño y luego añade reglas para anchos mayores. Los nombres sm o lg se refieren al ancho del viewport en píxeles CSS, no a una marca de celular o a un dispositivo concreto.</p>
+<table>
+<tr><th>Prefijo</th><th>Se activa desde</th><th>Ejemplo</th></tr>
+<tr><td>Sin prefijo</td><td>0 px</td><td>col-12</td></tr>
+<tr><td>sm</td><td>576 px</td><td>col-sm-6</td></tr>
+<tr><td>md</td><td>768 px</td><td>col-md-6</td></tr>
+<tr><td>lg</td><td>992 px</td><td>col-lg-4</td></tr>
+<tr><td>xl</td><td>1200 px</td><td>col-xl-3</td></tr>
+<tr><td>xxl</td><td>1400 px</td><td>col-xxl-2</td></tr>
+</table>
+<pre>&lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
+  &lt;!-- Una bicicleta --&gt;
+&lt;/div&gt;</pre>
+<p>En este ejemplo el bloque ocupa todo el ancho al principio. Desde 576 px ocupa la mitad. Desde 992 px ocupa un tercio. Desde 1200 px ocupa un cuarto. Una regla sigue aplicándose por encima de su breakpoint hasta que otra la sustituye. A 768 px, como no hay col-md-* en este ejemplo, sigue vigente col-sm-6.</p>
+<h3>Predice y luego observa</h3>
+<table>
+<tr><th>Ancho de prueba</th><th>Bicicletas por fila</th><th>Por qué</th></tr>
+<tr><td>360 o 575 px</td><td>1</td><td>col-12</td></tr>
+<tr><td>576, 768 o 991 px</td><td>2</td><td>col-sm-6</td></tr>
+<tr><td>992 o 1199 px</td><td>3</td><td>col-lg-4</td></tr>
+<tr><td>1200 o 1280 px</td><td>4</td><td>col-xl-3</td></tr>
+</table>
+<aside>Usamos el reparto de los mini retos completos: siete modelos y 1, 2, 3 y 4 columnas. El laboratorio resumido de Moodle muestra seis bicicletas y otro reparto. En esta guía seguimos los requisitos del producto.</aside>
+</section>
+<section id="s6"><div class="eyebrow">MINI RETO 5 · PASO 01</div><h2>Crea la página de prueba</h2>
+<p>Crea la carpeta pruebas dentro de rueda-libre-v1.5. Dentro crea catalogo-bootstrap.html. Este archivo es un laboratorio para comparar: no reemplaza todavía la página de inicio.</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Prueba de flota | Rueda Libre&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot;
+    href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;main class=&quot;container py-5&quot;&gt;
+    &lt;h1 class=&quot;mb-4&quot;&gt;Nuestra flota&lt;/h1&gt;
+    &lt;div class=&quot;row g-4&quot; id=&quot;flota&quot;&gt;
+      &lt;!-- En el siguiente paso van las siete columnas. --&gt;
+    &lt;/div&gt;
+  &lt;/main&gt;
+  &lt;script
+    src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js&quot;&gt;
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>No enlaces css/styles.css en esta página de prueba. Así demostrarás que la distribución sale de Bootstrap. El enlace CSS va en head; el script va antes de cerrar body. Puedes dividir una etiqueta en varias líneas entre atributos: eso no cambia su funcionamiento.</p>
+<h3>Comprueba la carga</h3>
+<p>Abre la página con Live Server. Pulsa F12, abre Network y recarga. Filtra por bootstrap: deben aparecer el CSS y el bundle sin errores. Una respuesta servida desde caché o un 304 puede ser normal; un 404 indica que la ruta está mal. El título debe tener margen inferior y el contenido debe quedar separado de los bordes.</p>
+<aside>Si todo parece HTML sin estilos, comprueba primero el enlace CSS y la conexión. No intentes arreglar una descarga fallida agregando reglas propias al laboratorio.</aside>
+</section>
+<section id="s7"><div class="eyebrow">MINI RETO 5 · PASO 02</div><h2>Reconstruye la flota sin CSS propio</h2>
+<p>Inicia el cronómetro. En index.html, copia los siete article que están dentro de .flota. En la página de prueba, envuelve cada article con una columna. Cambia las clases del artículo y del enlace como muestra este modelo; conserva el nombre, la descripción y el precio de cada bicicleta.</p>
+<pre>&lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
+  &lt;article class=&quot;h-100 d-flex flex-column gap-2 p-3 border rounded-3&quot;&gt;
+    &lt;img src=&quot;../img/urbana.svg&quot; class=&quot;img-fluid rounded&quot;
+      alt=&quot;Ilustración de referencia de una bicicleta urbana&quot;
+      width=&quot;640&quot; height=&quot;400&quot;&gt;
+    &lt;h2 class=&quot;fs-5&quot;&gt;Urbana Clásica&lt;/h2&gt;
+    &lt;p&gt;Cómoda y liviana para las ciclorrutas.&lt;/p&gt;
+    &lt;p class=&quot;fw-semibold text-success&quot;&gt;$10.000 / hora&lt;/p&gt;
+    &lt;a href=&quot;../paginas/reservas.html&quot;
+      class=&quot;mt-auto align-self-start text-dark bg-warning p-2 rounded&quot;&gt;
+      Reservar Urbana Clásica
+    &lt;/a&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</pre>
+<p>h-100 hace que el artículo ocupe el alto de su columna. d-flex flex-column organiza su contenido verticalmente. mt-auto empuja el enlace al final del espacio disponible. align-self-start evita que se estire a todo el ancho. img-fluid limita la imagen al ancho disponible. No estamos usando el componente card ni el componente btn.</p>
+<h3>Ajusta las rutas desde pruebas</h3>
+<p>Desde pruebas/catalogo-bootstrap.html, ../ sube a la carpeta principal. Por eso la imagen se busca en ../img/urbana.svg y reservas en ../paginas/reservas.html. En index.html esas mismas rutas no llevan ../. Aplica el cambio a todas las imágenes y enlaces copiados. En esta página de prueba no necesitas la etiqueta Nuevo, que pertenece a los estilos propios.</p>
+<h3>Detén y registra</h3>
+<p>Cuando estén los siete modelos y el reparto correcto, detén el cronómetro. Comprueba a 360, 576, 992 y 1200 px. Anota el tiempo, las clases de distribución y qué control perdiste frente al auto-fit original. Guarda el mini reto con un commit.</p>
+</section>
+<section id="s8"><div class="eyebrow">MINI RETO 6 · FUNDAMENTO</div><h2>Aprende a leer las utilidades</h2>
+<p>Una utilidad suele resolver una propiedad concreta. En vez de crear .espacio-abajo para una sola sección, puedes aplicar mb-4. La notación de espaciado combina la propiedad, el lado, un breakpoint opcional y un valor.</p>
+<table>
+<tr><th>Parte</th><th>Significado</th><th>Ejemplo</th></tr>
+<tr><td>m / p</td><td>margin / padding</td><td>mb-3 / p-3</td></tr>
+<tr><td>t / b</td><td>arriba / abajo</td><td>mt-2 / pb-4</td></tr>
+<tr><td>s / e</td><td>inicio / final de la dirección de escritura</td><td>ms-2 / pe-3</td></tr>
+<tr><td>x / y</td><td>ambos lados horizontales / verticales</td><td>px-3 / py-5</td></tr>
+<tr><td>md, lg…</td><td>desde ese ancho en adelante</td><td>mb-md-0</td></tr>
+</table>
+<table>
+<tr><th>Valor</th><th>Espacio por defecto</th></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>0.25rem</td></tr>
+<tr><td>2</td><td>0.5rem</td></tr>
+<tr><td>3</td><td>1rem</td></tr>
+<tr><td>4</td><td>1.5rem</td></tr>
+<tr><td>5</td><td>3rem</td></tr>
+<tr><td>auto</td><td>Margen automático cuando la utilidad lo admite</td></tr>
+</table>
+<p>Con la configuración habitual de 16 px para 1rem, p-3 equivale a 16 px. Si cambia el tamaño raíz, cambia su equivalencia. mb-4 mb-md-0 deja 1.5rem debajo en tamaños pequeños y retira ese margen desde 768 px.</p>
+<h3>Otras clases que usaremos</h3>
+<p>fw-bold resalta el peso del texto; fs-5 elige un tamaño de fuente; text-center centra texto; lead destaca un párrafo. bg-warning asigna un fondo y text-dark un texto oscuro. text-bg-dark combina un fondo oscuro con texto claro. Elegir una utilidad de color no reemplaza revisar el contraste.</p>
+<aside>En Bootstrap 5 usa ms-* y me-* para inicio y final. No copies ml-* o mr-* de ejemplos antiguos. No todos los nombres aceptan un breakpoint: por ejemplo, fs-md-5 no viene incluido como utilidad estándar. Usa las clases que existen.</aside>
+</section>
+<section id="s9"><div class="eyebrow">MINI RETO 6 · PASO 01</div><h2>Construye los cuatro beneficios</h2>
+<p>En pruebas/catalogo-bootstrap.html, agrega esta sección dentro de main, después del cierre de la fila de la flota. Usa solo clases de Bootstrap: no agregues style, una etiqueta style ni una hoja propia.</p>
+<pre>&lt;section class=&quot;py-5&quot; aria-labelledby=&quot;beneficios-titulo&quot;&gt;
+  &lt;h2 id=&quot;beneficios-titulo&quot; class=&quot;text-center mb-4&quot;&gt;
+    ¿Por qué Rueda Libre?
+  &lt;/h2&gt;
+  &lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Bicicletas revisadas&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Revisamos cada bicicleta antes de entregarla.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;En cada alquiler&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Equipo incluido&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Sales con casco y candado.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;Sin costo adicional&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Guías certificados&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Recorre la ciudad con acompañamiento.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;En los recorridos guiados&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Más puntos de devolución&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Consulta el punto para terminar tu paseo.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;Tres sedes&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+<p>Cada beneficio ocupa una columna completa al principio, media desde sm y un cuarto desde lg. Observa que esta sección puede usar breakpoints distintos a los de la flota: cada contenido tiene sus necesidades. Aquí h3 corresponde al subtítulo de un beneficio dentro de una sección h2.</p>
+<aside>El dato de tres sedes pertenece al caso del mini reto. No inventes direcciones: el proyecto no las proporciona. En la versión real habría que confirmarlas con el cliente.</aside>
+</section>
+<section id="s10"><div class="eyebrow">MINI RETO 6 · PASO 02</div><h2>Organiza la llamada a la acción</h2>
+<p>Debajo de los beneficios, todavía dentro de main, agrega una franja con texto y un enlace a reservas. En móvil quedará apilada; desde md sus elementos compartirán una fila.</p>
+<pre>&lt;section class=&quot;p-4 rounded-3 text-bg-dark&quot;
+  aria-labelledby=&quot;rodar-titulo&quot;&gt;
+  &lt;div class=&quot;d-flex flex-column flex-md-row align-items-center
+    justify-content-between gap-3&quot;&gt;
+    &lt;div&gt;
+      &lt;h2 id=&quot;rodar-titulo&quot; class=&quot;mb-2&quot;&gt;¿Listo para rodar?&lt;/h2&gt;
+      &lt;p class=&quot;mb-0&quot;&gt;Elige tu bicicleta y prepara tu recorrido.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;img src=&quot;../img/logo.svg&quot; alt=&quot;&quot; width=&quot;80&quot; height=&quot;80&quot;
+      class=&quot;d-none d-md-block&quot;&gt;
+    &lt;a href=&quot;../paginas/reservas.html&quot;
+      class=&quot;d-inline-block bg-warning text-dark fw-semibold
+        px-4 py-3 rounded-3 text-decoration-none&quot;&gt;
+      Ir a reservas
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+<p>flex-column coloca el eje principal en vertical. flex-md-row lo vuelve horizontal desde 768 px. justify-content-between reparte el espacio sobrante en ese eje; align-items-center centra en el eje cruzado. gap-3 mantiene una separación de 1rem cuando no sobra espacio.</p>
+<p>d-none oculta la imagen y la saca de la distribución. d-md-block la muestra desde md. El alt vacío es adecuado porque este logo es decorativo: el nombre del negocio ya está en el contexto. No ocultes con esta técnica información necesaria para reservar.</p>
+<h3>Por qué el enlace sigue siendo un enlace</h3>
+<p>Ir a reservas navega a otra página, por eso usamos a. Un button serviría para una acción dentro del contexto actual, como enviar un formulario. Que un enlace tenga fondo y relleno no cambia su función. El aspecto destacado de hoy se consigue con utilidades.</p>
+<h3>Comprueba y registra</h3>
+<p>A 767 px la imagen debe estar oculta; a 768 px debe aparecer y la franja pasar a fila. Usa Tab para llegar al enlace. En la bitácora explica cinco clases que consultaste y probaste, y guarda el mini reto en Git.</p>
+</section>
+<section id="s11"><div class="eyebrow">MINI RETO 7 · PASO 01</div><h2>Lleva Bootstrap a inicio</h2>
+<p>Ahora integra el framework en index.html. Primero agrega el enlace CSS de Bootstrap antes de css/styles.css; conserva los enlaces a Google Fonts. Agrega el mismo bundle antes de cerrar body. En la página de pruebas sigue sin enlazarse la hoja propia.</p>
+<pre>&lt;!-- Dentro de head, después de las fuentes --&gt;
+&lt;link rel=&quot;stylesheet&quot;
+  href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot;&gt;
+
+&lt;!-- Sustituye las clases del main; conserva su id --&gt;
+&lt;main id=&quot;contenido&quot; class=&quot;container py-5&quot;&gt;
+  &lt;!-- Conserva las secciones existentes. --&gt;
+&lt;/main&gt;</pre>
+<h3>Migra la portada sin perder su contenido</h3>
+<pre>&lt;section class=&quot;mb-5&quot; aria-labelledby=&quot;titulo&quot;&gt;
+  &lt;div class=&quot;row g-4 align-items-center&quot;&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;
+      &lt;p class=&quot;texto-secundario&quot;&gt;ALQUILER Y RECORRIDOS EN MEDELLÍN&lt;/p&gt;
+      &lt;h1 id=&quot;titulo&quot;&gt;Rueda Libre&lt;/h1&gt;
+      &lt;!-- Conserva el párrafo completo y sus enlaces. --&gt;
+      &lt;a class=&quot;boton&quot; href=&quot;paginas/reservas.html&quot;&gt;Reservar ahora&lt;/a&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;
+      &lt;img src=&quot;img/rio.svg&quot; class=&quot;img-fluid rounded-3&quot;
+        alt=&quot;Ilustración de una ruta entre montañas de Medellín&quot;
+        width=&quot;800&quot; height=&quot;500&quot;&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+<p>Las dos col-md-6 producen mitades desde 768 px. En móvil siguen ocupando todo el ancho. align-items-center alinea verticalmente las columnas de esa fila. Mantén un único h1; el resto de títulos de sección sigue en h2.</p>
+<aside>Cargar la hoja propia después ayuda a resolver reglas con igual prioridad y especificidad. El orden por sí solo no derrota un selector más específico ni una declaración importante. Resolveremos los conflictos mirando las reglas concretas.</aside>
+</section>
+<section id="s12"><div class="eyebrow">MINI RETO 7 · PASO 02</div><h2>Migra las secciones de inicio</h2>
+<p>En la flota de index.html, cambia div.flota por div.row.g-4 y envuelve cada bicicleta en col-12 col-sm-6 col-lg-4 col-xl-3. Conserva tarjeta y bici para su apariencia. Agrega al artículo h-100 d-flex flex-column gap-2 y al enlace mt-auto align-self-start. Aquí el título de cada bicicleta sigue en h3 porque está dentro de Nuestra flota, que tiene h2.</p>
+<pre>&lt;div class=&quot;row g-4&quot;&gt;
+  &lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
+    &lt;article class=&quot;tarjeta bici h-100 d-flex flex-column gap-2&quot;&gt;
+      &lt;!-- Conserva imagen, h3, descripción y precio. --&gt;
+      &lt;a class=&quot;boton mt-auto align-self-start&quot;
+        href=&quot;paginas/reservas.html&quot;&gt;Reservar Urbana Clásica&lt;/a&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+  &lt;!-- Repite la envoltura para los otros seis artículos existentes. --&gt;
+&lt;/div&gt;</pre>
+<table>
+<tr><th>Bloque existente</th><th>Envoltura que debes usar</th></tr>
+<tr><td>div.servicios</td><td>Cámbialo por row g-4; cada article va en col-12 col-md-4</td></tr>
+<tr><td>div.rutas</td><td>Cámbialo por row g-4; cada article va en col-12 col-md-4</td></tr>
+<tr><td>Cada tarjeta de servicios y rutas</td><td>Añade h-100 si quieres igualar altos dentro de la fila</td></tr>
+<tr><td>Secciones principales</td><td>Añade mb-5 para conservar separación vertical</td></tr>
+</table>
+<p>Copia a inicio los beneficios y la franja de la página de prueba. Corrige sus rutas: ../img/logo.svg pasa a img/logo.svg y ../paginas/reservas.html pasa a paginas/reservas.html. Si copias solo las secciones, no copies otro main, otro h1 ni el segundo head.</p>
+<h3>Qué debes retirar del CSS en este punto</h3>
+<p>Retira las reglas de .portada, .servicios, .rutas y .flota, incluidas sus variantes dentro de las media queries. De .bici retira display, flex-direction y gap. Retira la regla .bici .boton que se sustituyó por mt-auto y align-self-start. Conserva .bici h3 y .bici p si quieres mantener los márgenes de su contenido.</p>
+<aside>No elimines aún .layout-tarifas, .layout-reservas ni .fila-campos: las otras páginas todavía dependen de ellas. Comenta esos bloques como pendientes del mini reto 8.</aside>
+</section>
+<section id="s13"><div class="eyebrow">MINI RETO 7 · PASO 03</div><h2>Migra el encabezado y el pie</h2>
+<p>El encabezado compartido también puede organizarse con utilidades. Todavía no construiremos una navbar plegable: el menú seguirá cambiando de línea cuando necesite espacio.</p>
+<pre>&lt;header class=&quot;encabezado py-3&quot;&gt;
+  &lt;div class=&quot;container d-flex flex-column flex-md-row
+    justify-content-md-between align-items-center gap-3&quot;&gt;
+    &lt;a class=&quot;marca d-flex align-items-center gap-2&quot; href=&quot;index.html&quot;&gt;
+      &lt;img src=&quot;img/logo.svg&quot; alt=&quot;&quot; width=&quot;80&quot; height=&quot;80&quot;&gt;
+      Rueda Libre
+    &lt;/a&gt;
+    &lt;nav aria-label=&quot;Navegación principal&quot;&gt;
+      &lt;ul id=&quot;menu&quot; class=&quot;menu d-flex flex-wrap
+        justify-content-center gap-4 list-unstyled m-0 p-0&quot;&gt;
+        &lt;!-- Conserva los tres li y sus enlaces. --&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre>
+<p>Sustituye el contenedor interior del pie por el siguiente. Conserva dentro sus tres bloques: marca, contacto y horario. El div no necesita seguir llamándose pie-bloques porque la distribución estará expresada en utilidades.</p>
+<pre>&lt;div class=&quot;container d-flex flex-column flex-md-row
+  justify-content-between align-items-start gap-4&quot;&gt;
+  &lt;!-- Aquí siguen los tres bloques existentes del pie. --&gt;
+&lt;/div&gt;</pre>
+<p>Retira .barra y .pie-bloques del CSS y sus variantes responsive. De .menu quita display, flex-wrap, justify-content, gap, list-style, margin y padding; conserva las reglas que dan apariencia a sus enlaces. De .marca quita display, align-items y gap; conserva color, tipografía y decoración. La clase encabezado puede conservar fondo y color.</p>
+<h3>Qué replicar en las otras páginas</h3>
+<p>Cuando migres tarifas y reservas, lleva este mismo marcado a sus encabezados y pies. Ajusta href y src para usar ../ desde paginas/. Conserva aria-current=&quot;page&quot; y activo únicamente en el enlace de la página que se está visitando.</p>
+<aside>Conserva los id usados por los enlaces y el salto a #contenido. Una migración visual no debe romper los destinos de navegación.</aside>
+</section>
+<section id="s14"><div class="eyebrow">MINI RETO 7 · PASO 04</div><h2>Resuelve conflictos con DevTools</h2>
+<p>Si algo no se ve como esperabas, selecciona ese elemento con Inspeccionar. En Styles busca la propiedad en conflicto. Una declaración tachada perdió frente a otra regla; no siempre significa que sea inútil o incorrecta. En Computed revisa el valor que finalmente se aplica y desde dónde viene.</p>
+<table>
+<tr><th>Síntoma</th><th>Qué inspeccionar</th><th>Corrección razonada</th></tr>
+<tr><td>La fila sigue siendo una cuadrícula CSS</td><td>¿Quedó class=&quot;flota row&quot; y .flota con display: grid?</td><td>Retira flota del marcado y su regla de distribución</td></tr>
+<tr><td>Una fila queda centrada y estrecha de más</td><td>¿Se conservaron contenedor y container juntos?</td><td>Sustituye contenedor por container; retira la regla anterior cuando no se use</td></tr>
+<tr><td>El título usa otra fuente</td><td>¿Una regla posterior sobrescribe font-family?</td><td>Mantén la regla agrupada de títulos en styles.css y verifica las fuentes cargadas</td></tr>
+<tr><td>Un enlace no cambia de color</td><td>¿Tiene una utilidad text-* que declara color importante?</td><td>Retira la utilidad si el color debe venir de la clase de marca</td></tr>
+</table>
+<h3>Especificidad y orden con un ejemplo</h3>
+<pre>/* p tiene especificidad 0-0-1 */
+p { color: var(--azul-noche); }
+
+/* .bici p tiene especificidad 0-1-1 */
+.bici p { color: var(--verde-ruta); }</pre>
+<p>Si ambas reglas tienen la misma importancia y pertenecen al mismo contexto de cascada, gana .bici p por su mayor especificidad. Para que solo el precio sea verde, evita teñir todos los párrafos y usa la clase precio en el párrafo correspondiente. No resuelvas cada diferencia agregando !important.</p>
+<h3>La herencia no es otra competencia entre selectores</h3>
+<p>Un párrafo puede heredar color de body si no recibe otro color. En cambio, background y padding no se heredan de esa forma. Una regla que asigna color directamente al párrafo se aplica antes que el color que habría heredado. Por eso hay que inspeccionar el elemento correcto.</p>
+<aside>Registra tres conflictos que realmente observes: selector, propiedad, valor ganador y cambio realizado. Los ejemplos de esta página son hipótesis para diagnosticar, no resultados que debas copiar como si hubieran ocurrido.</aside>
+</section>
+<section id="s15"><div class="eyebrow">MINI RETO 8 · PASO 01</div><h2>Organiza tarifas con la grilla</h2>
+<p>Agrega Bootstrap a paginas/tarifas.html. Tu hoja propia se carga después con href=&quot;../css/styles.css&quot;. Sustituye el main por class=&quot;container py-5&quot; y migra encabezado y pie con las utilidades ya explicadas.</p>
+<pre>&lt;div class=&quot;row g-4&quot;&gt;
+  &lt;div class=&quot;col-12 col-lg-8&quot;&gt;
+    &lt;section class=&quot;mb-4&quot;&gt;
+      &lt;h2&gt;Alquiler de bicicletas&lt;/h2&gt;
+      &lt;!-- Conserva la tabla completa y la nota de casco y candado. --&gt;
+    &lt;/section&gt;
+    &lt;section id=&quot;recorridos&quot; class=&quot;mb-4&quot;&gt;
+      &lt;h2&gt;Recorridos guiados&lt;/h2&gt;
+      &lt;!-- Conserva tabla, horario de salidas y enlace a reservas. --&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12 col-lg-4&quot;&gt;
+    &lt;aside class=&quot;tarjeta&quot;&gt;
+      &lt;h2&gt;Antes de salir&lt;/h2&gt;
+      &lt;!-- Conserva la lista y el aviso de confirmación. --&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>Sustituye div.layout-tarifas por row g-4. El bloque que contiene las dos tablas ocupa ocho de doce partes desde lg; la información complementaria ocupa cuatro. En móvil ambos usan el ancho completo. Ocho más cuatro completa las doce partes de una fila.</p>
+<h3>Conserva el significado de las tablas</h3>
+<p>No conviertas los datos en una colección de div para facilitar el diseño. Conserva table, caption, thead, tbody y los th con scope. La grilla distribuye bloques de la página; la tabla representa relaciones entre filas y columnas. Mantén las reglas propias de bordes, rellenos y encabezados de tabla.</p>
+<p>Si una tabla con más datos no cabe, puedes envolverla en un div con overflow-auto para limitar el desplazamiento a ese bloque. Primero revisa el ancho, los textos y el relleno. En esta base las tablas deben poder leerse en móvil sin que todo el documento se desplace lateralmente.</p>
+<aside>Cuando la página esté migrada, retira .layout-tarifas y su regla dentro del breakpoint de 1200 px. Conserva el id recorridos para que sigan funcionando los enlaces desde inicio.</aside>
+</section>
+<section id="s16"><div class="eyebrow">MINI RETO 8 · PASO 02</div><h2>Organiza reservas sin perder campos</h2>
+<p>Agrega a paginas/reservas.html los mismos recursos Bootstrap, con ../css/styles.css después. Cambia el contenedor principal a container py-5. El reto pide proporción 8/4 desde md: en esta migración las dos columnas aparecen desde 768 px, aunque la base las mostraba desde 1200 px.</p>
+<pre>&lt;div class=&quot;row g-4&quot;&gt;
+  &lt;div class=&quot;col-12 col-md-8&quot;&gt;
+    &lt;section id=&quot;formulario&quot;&gt;
+      &lt;h2&gt;Formulario de reserva&lt;/h2&gt;
+      &lt;!-- Conserva aquí TODO el form original. --&gt;
+    &lt;/section&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12 col-md-4&quot;&gt;
+    &lt;aside class=&quot;tarjeta&quot;&gt;
+      &lt;!-- Conserva contacto, horarios y aviso educativo. --&gt;
+    &lt;/aside&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<h3>Migra las dos filas de campos cortos</h3>
+<p>En el formulario hay dos div.fila-campos: uno agrupa documento y celular; el otro, plan y cantidad. En cada caso usa row g-3 y añade col-12 col-sm-6 a sus dos div.campo. Los label y los controles quedan dentro de su columna. No pongas la clase row directamente en fieldset.</p>
+<pre>&lt;div class=&quot;row g-3&quot;&gt;
+  &lt;div class=&quot;campo col-12 col-sm-6&quot;&gt;
+    &lt;label for=&quot;documento&quot;&gt;Documento&lt;/label&gt;
+    &lt;input id=&quot;documento&quot; name=&quot;documento&quot; type=&quot;text&quot;
+      inputmode=&quot;numeric&quot; pattern=&quot;[0-9]{6,10}&quot;
+      title=&quot;Entre 6 y 10 dígitos, sin puntos ni espacios&quot; required&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;campo col-12 col-sm-6&quot;&gt;
+    &lt;!-- Conserva label y control completos de celular. --&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<aside>Retira .layout-reservas y .fila-campos del CSS, incluidas sus variantes responsive. Conserva fieldset, legend, label, input, select, textarea y sus estilos: hoy estás cambiando distribución, no las reglas del formulario.</aside>
+</section>
+<section id="s17"><div class="eyebrow">MINI RETO 8 · PASO 03</div><h2>Entiende la validación que conservas</h2>
+<p>La validación nativa la realiza el navegador antes de enviar el formulario. Bootstrap no comprueba la disponibilidad de bicicletas. Cambiar columnas o colores no debe modificar required, pattern, min, max o los nombres de los controles.</p>
+<table>
+<tr><th>Campo</th><th>Regla del caso</th><th>Cómo se expresa</th></tr>
+<tr><td>Nombre</td><td>Obligatorio, mínimo 3 caracteres</td><td>required y minlength=&quot;3&quot;</td></tr>
+<tr><td>Documento</td><td>6 a 10 dígitos</td><td>type=&quot;text&quot; y pattern=&quot;[0-9]{6,10}&quot;</td></tr>
+<tr><td>Correo</td><td>Formato de correo y obligatorio</td><td>type=&quot;email&quot; y required</td></tr>
+<tr><td>Celular</td><td>10 dígitos, empieza por 3</td><td>type=&quot;tel&quot; y pattern=&quot;3[0-9]{9}&quot;</td></tr>
+<tr><td>Fecha</td><td>1 nov a 31 dic de 2026</td><td>type=&quot;date&quot;, min y max</td></tr>
+<tr><td>Tipo de bicicleta</td><td>Una opción obligatoria</td><td>radio con el mismo name y required</td></tr>
+<tr><td>Plan</td><td>Obligatorio</td><td>select required y primera opción vacía</td></tr>
+<tr><td>Cantidad</td><td>Entero entre 1 y 6</td><td>number, min=&quot;1&quot;, max=&quot;6&quot;, step=&quot;1&quot;</td></tr>
+<tr><td>Comentarios</td><td>Opcional, hasta 300 caracteres</td><td>textarea maxlength=&quot;300&quot;</td></tr>
+<tr><td>Políticas</td><td>Aceptación obligatoria</td><td>checkbox required</td></tr>
+</table>
+<p>El documento es un identificador, no una cantidad para hacer operaciones: text permite usar un patrón y conservar ceros iniciales. inputmode=&quot;numeric&quot; sugiere un teclado, pero no valida. En el patrón [0-9] significa un dígito; {6,10} exige entre seis y diez. type=&quot;tel&quot; tampoco valida por sí solo un número colombiano: lo hace el patrón.</p>
+<h3>for, id y name cumplen funciones distintas</h3>
+<p>for conecta la etiqueta con el control que tiene ese id. Al hacer clic en el label, ese control recibe foco o cambia su selección. name identifica el dato enviado. Los radios del tipo de bicicleta comparten name para permitir una sola elección. Cada uno conserva un id distinto.</p>
+<aside>El proyecto mantiene method=&quot;post&quot; del caso. Un servidor estático no procesa reservas: después de pasar la validación, el envío puede terminar en 405 o 501. No es una reserva confirmada ni una falla del patrón. No cambies a GET para ocultar esa limitación. Usa datos ficticios.</aside>
+</section>
+<section id="s18"><div class="eyebrow">MINI RETO 8 · PASO 04</div><h2>Limpia el CSS con un criterio claro</h2>
+<p>Busca cada clase de distribución en los tres HTML antes de borrar su regla. Si una página aún la usa, migra ese bloque primero. El objetivo no es reducir líneas a cualquier costo: es evitar dos sistemas compitiendo por el mismo trabajo.</p>
+<table>
+<tr><th>Retirar cuando ya no se use</th><th>Conservar o ajustar</th></tr>
+<tr><td>.contenedor y main con padding</td><td>container py-5 en los tres main</td></tr>
+<tr><td>section con margin-bottom global</td><td>mb-5 o mb-4 en las secciones que lo necesitan</td></tr>
+<tr><td>.barra y .pie-bloques</td><td>Utilidades flex en encabezado y pie</td></tr>
+<tr><td>Distribución de .marca y .menu</td><td>Colores, tamaño del logo y estados de sus enlaces</td></tr>
+<tr><td>.portada, .servicios, .rutas, .flota</td><td>row y col-* en su HTML</td></tr>
+<tr><td>Flex y gap de .bici; .bici .boton</td><td>Utilidades en tarjetas; apariencia tarjeta y precio</td></tr>
+<tr><td>.layout-tarifas, .layout-reservas, .fila-campos</td><td>row y columnas para cada bloque</td></tr>
+<tr><td>Media queries que solo distribuían esos bloques</td><td>Ajustes tipográficos de tablas si siguen haciendo falta</td></tr>
+</table>
+<h3>Una hoja propia sigue teniendo trabajo</h3>
+<pre>/* Ejemplo de identidad que sí permanece */
+:root { --verde-ruta: #1e7a4f; }
+.precio { color: var(--verde-ruta); font-weight: 600; }
+.tarjeta { border-radius: var(--radio); }
+.menu a.activo { color: var(--naranja-pedal); }
+:focus-visible {
+  outline: 3px solid var(--azul-noche);
+  outline-offset: 4px;
+}</pre>
+<p>Conserva también las variables originales completas, las dos fuentes, los colores de body, los bordes y fondos de tarjetas y tablas, los controles de formulario, sus estados, el salto al contenido y los detalles posicionados. El relleno de una tarjeta forma parte de su apariencia; no es lo mismo que repartir columnas en la página.</p>
+<aside>No pegues este ejemplo encima de toda la hoja: muestra qué tipo de reglas conservar. Mantén la definición completa de tus variables. Revisa después de cada bloque eliminado; una reducción de líneas no demuestra por sí sola que el sitio esté correcto.</aside>
+</section>
+<section id="s19"><div class="eyebrow">VERIFICACIÓN</div><h2>Prueba antes de dar por terminada la migración</h2>
+<p>Abre las tres páginas en modo dispositivo de DevTools. Usa ancho responsive y escribe valores concretos, sin limitarte a los modelos de teléfono del menú. Revisa también los límites de cada breakpoint.</p>
+<table>
+<tr><th>Prueba</th><th>Qué debe ocurrir</th></tr>
+<tr><td>Inicio a 360 px</td><td>Flota en una columna; menú legible; sin desborde</td></tr>
+<tr><td>Flota a 575 y 576 px</td><td>Pasa de una a dos columnas</td></tr>
+<tr><td>Franja a 767 y 768 px</td><td>Cambia de columna a fila; aparece la imagen decorativa</td></tr>
+<tr><td>Flota a 991 y 992 px</td><td>Pasa de dos a tres columnas</td></tr>
+<tr><td>Flota a 1199 y 1200 px</td><td>Pasa de tres a cuatro columnas</td></tr>
+<tr><td>Tarifas a 360, 768 y 1280 px</td><td>Tablas legibles; complemento debajo hasta lg</td></tr>
+<tr><td>Reservas a 360, 768 y 1280 px</td><td>Una columna al inicio; formulario/contacto en 8/4 desde md</td></tr>
+<tr><td>Las tres con Tab y Shift + Tab</td><td>Foco visible, orden lógico y todos los enlaces accesibles</td></tr>
+</table>
+<h3>Prueba los límites del formulario</h3>
+<p>Con el resto de datos válidos, cambia un campo por vez: nombre de dos letras; documento con letras; correo sin @; celular que no empiece por 3; fecha 2026-10-31; cantidad 0, 7 y 1.5; políticas sin marcar. Debe bloquear cada envío incorrecto. Luego prueba la fecha inicial y final y cantidades 1 y 6. Deben superar su validación si el resto es correcto.</p>
+<h3>Comprueba las rutas y la red</h3>
+<p>Visita los tres enlaces del menú desde cada página. Prueba además los enlaces a #recorridos y #contenido. En Network no deben aparecer 404 en imágenes, CSS o fuentes. Un 304 indica reutilización de una versión en caché y no es, por sí mismo, una imagen rota.</p>
+<aside>Guarda capturas a 360, 768 y 1280 px y anota qué revisaste. Si encuentras un problema, escribe síntoma, causa, cambio y resultado al repetir la prueba. Una captura sin observación no explica por qué decidiste que funcionaba.</aside>
+</section>
+<section id="s20"><div class="eyebrow">BITÁCORA</div><h2>Documenta la comparación con honestidad</h2>
+<p>La comparación sirve para decidir si el framework ayudó en este caso. No necesitas concluir que Bootstrap siempre es mejor. Tu versión con CSS propio puede ser más flexible en algunos puntos; la versión con clases puede ser más rápida de mantener para un equipo que conozca sus convenciones.</p>
+<pre>COMPARACIÓN V1.5 / V2.0-BETA
+Referencia inicial: etiqueta v1.5-base
+Líneas totales de styles.css antes:
+Líneas totales de styles.css después:
+Criterio de conteo: todas las líneas, incluidos blancos y comentarios
+
+Flota con CSS propio: declaraciones de distribución:
+Flota Bootstrap: clases de distribución utilizadas:
+Tiempo original: no medido si recibí la base
+Tiempo medido hoy en la reconstrucción de la flota:
+
+Ventaja observada con un ejemplo:
+Desventaja observada con un ejemplo:
+Tres conflictos reales y cómo los resolví:
+Cinco utilidades consultadas y efecto comprobado:
+Resultado de las pruebas en móvil, tablet y escritorio:
+Conclusión para este proyecto:</pre>
+<h3>Cómo leer los números</h3>
+<p>Si pasas de 180 a 120 líneas de CSS, la reducción de líneas es (180 - 120) / 180 × 100 = 33.3 %. Es un ejemplo de cálculo, no una medición de tu trabajo. No compares una hoja compactada en una línea con otra formateada en muchas. Tampoco sumes las clases del HTML como si fueran líneas de CSS.</p>
+<p>Bootstrap no elimina el CSS que ejecuta el navegador: incorpora una hoja externa. La reducción que estás midiendo es de tu hoja propia. Si quieres comparar tiempo de construcción completo, ambas versiones deben haberse construido y cronometrado con un alcance comparable.</p>
+<h3>Una conclusión que sí aporta</h3>
+<p>Explica qué bloque fue más fácil de cambiar, qué personalización exigió revisar la cascada y qué escogerías para una próxima entrega parecida. Apoya la decisión en tus pruebas y tus medidas, no solo en que una versión «se ve más profesional».</p>
+</section>
+<section id="s21"><div class="eyebrow">CIERRE DEL DÍA</div><h2>Guarda y publica la versión beta</h2>
+<p>Después de cada mini reto, comprueba qué cambió y guarda un commit que describa su resultado. Si trabajas con más personas, acuerden quién modifica cada archivo y revisen los cambios antes de integrarlos.</p>
+<pre>git status
+git diff
+git add .
+git commit -m &quot;Migra tarifas y reservas a Bootstrap&quot;
+git push origin main</pre>
+<p>git status lista cambios y git diff muestra diferencias. add prepara lo que vas a guardar. commit crea la versión local; push la envía al remoto que ya debes tener conectado. Si no existe origin, crea un repositorio vacío en tu cuenta y agrega su URL real con git remote add origin URL. No escribas literalmente URL.</p>
+<h3>Publica desde tu propio repositorio</h3>
+<p>En GitHub abre Settings, luego Pages. Elige Deploy from a branch, rama main y carpeta / (root). Guarda la configuración. Cuando la publicación termine, abre la URL que muestra GitHub. No cambies las rutas relativas por rutas de tu disco ni por rutas que empiecen en /: en un sitio de proyecto podrían apuntar fuera de su carpeta.</p>
+<h3>Revisión en línea</h3>
+<p>Desde la URL publicada recorre inicio, tarifas, reservas y la página de pruebas. Comprueba imágenes, fuentes y CSS. Si algo funciona localmente pero falla en línea, revisa mayúsculas y minúsculas: img/Rio.svg no es el mismo nombre que img/rio.svg en todos los servidores. Registra la URL real en la bitácora.</p>
+<table>
+<tr><th>Antes de entregar</th><th>Comprueba</th></tr>
+<tr><td>Producto</td><td>Tres páginas migradas con contenido completo</td></tr>
+<tr><td>Laboratorio</td><td>pruebas/catalogo-bootstrap.html con flota y beneficios</td></tr>
+<tr><td>Código</td><td>Distribución con Bootstrap; marca en styles.css</td></tr>
+<tr><td>Formulario</td><td>Reglas originales intactas y límite del POST entendido</td></tr>
+<tr><td>Bitácora</td><td>Tiempo real, conteos, conflictos, utilidades y conclusión</td></tr>
+<tr><td>Publicación</td><td>URL comprobada desde otro navegador o celular</td></tr>
+</table>
+<aside>El día termina en v2.0-beta. En el día 3 podrás sustituir el menú por una navbar plegable y trabajar componentes. Hoy debes poder explicar por qué cambian las columnas y cómo comprobar que una utilidad está actuando.</aside>
+</section>
+<section id="s22"><div class="eyebrow">CONSULTA RÁPIDA</div><h2>Si algo falla encuentra la causa</h2>
+<table>
+<tr><th>Problema</th><th>Revisa en este orden</th></tr>
+<tr><td>Todas las bicicletas quedan apiladas</td><td>Carga del CSS Bootstrap; presencia de row; columnas como hijas de row; ancho del viewport</td></tr>
+<tr><td>Nada cambia al llegar a un breakpoint</td><td>Nombre exacto de clase; unidad px CSS del modo responsive; reglas propias que aún fijan width o display</td></tr>
+<tr><td>La página tiene scroll horizontal</td><td>row fuera de container; imagen sin límite; tabla; palabras largas; ancho fijo heredado</td></tr>
+<tr><td>La imagen falla solo en pruebas/</td><td>Usar ../img/; nombre y extensión exactos; archivo presente</td></tr>
+<tr><td>El enlace abre otra ruta</td><td>Contar niveles desde el archivo actual; conservar #id correcto</td></tr>
+<tr><td>El botón de reservar queda a media altura</td><td>h-100 en article; d-flex flex-column en article; mt-auto en enlace</td></tr>
+<tr><td>El formulario permite documento con letras</td><td>pattern en el input correcto; type text; required; no haber añadido novalidate</td></tr>
+<tr><td>El formulario rechaza una fecha actual</td><td>Rango fijo del ejercicio: noviembre y diciembre de 2026</td></tr>
+<tr><td>Aparece 501 al enviar datos válidos</td><td>POST no soportado por servidor estático; no hay backend</td></tr>
+<tr><td>Un texto no toma el color de marca</td><td>Selector ganador, herencia y utilidad text-* importante</td></tr>
+<tr><td>El menú no se pliega en móvil</td><td>Es el comportamiento de hoy: flex-wrap; navbar plegable es del día 3</td></tr>
+</table>
+<h3>Preguntas para explicar con tus palabras</h3>
+<p>¿Por qué col-lg-4 produce tres elementos por fila? ¿Qué regla sigue activa a 800 px si usas col-12 col-sm-6 col-lg-4? ¿Por qué gap-3 no es tres píxeles? ¿Qué cambia entre una imagen informativa y otra decorativa? ¿Cómo sabes si el problema está en Bootstrap o en una ruta incorrecta?</p>
+<p>Respuestas breves para comprobarte: cuatro de doce es un tercio; a 800 px sigue col-sm-6; 3 es un índice de escala; el alt depende de la función de la imagen; Network comprueba descargas y Styles comprueba reglas. Intenta explicarlas primero sin mirar esta respuesta.</p>
+</section>
+<section id="s23"><div class="eyebrow">USO PARA EL TL Y LOS CODERS</div><h2>Guion para enseñar y volver a consultar</h2>
+<p>Puedes usar esta guía como una sesión de construcción acompañada. El tiempo siguiente es una propuesta de clase, no una medición del proyecto ni una obligación del Moodle. Ajusta el ritmo según lo que observe el grupo.</p>
+<table>
+<tr><th>Momento sugerido</th><th>Acción del TL</th><th>Acción de los coders</th></tr>
+<tr><td>0 a 20 min</td><td>Abrir la base y pedir que predigan columnas</td><td>Verificar archivos, navegación y referencia Git</td></tr>
+<tr><td>20 a 50 min</td><td>Explicar doce partes con anchos concretos</td><td>Crear laboratorio y probar fronteras de breakpoints</td></tr>
+<tr><td>50 a 80 min</td><td>Leer una utilidad desde su nombre</td><td>Construir beneficios y franja</td></tr>
+<tr><td>80 a 125 min</td><td>Migrar portada y una tarjeta en vivo</td><td>Migrar resto de inicio y registrar conflictos</td></tr>
+<tr><td>125 a 165 min</td><td>Revisar que el formulario conserve sus reglas</td><td>Migrar tarifas y reservas</td></tr>
+<tr><td>165 a 195 min</td><td>Pedir evidencia de cada resultado</td><td>Probar, medir, concluir y publicar</td></tr>
+</table>
+<h3>Preguntas que ayudan a comprobar comprensión</h3>
+<p>Antes de cambiar el ancho, pide una predicción: «¿Cuántas bicicletas habrá por fila a 1000 px y qué clase lo decide?». Si algo falla, pide una explicación basada en Network o Styles. Al cerrar, cada persona debería poder cambiar un breakpoint, corregir una ruta desde pruebas/ y explicar una validación sin copiar una solución completa.</p>
+<h3>Fuentes para profundizar después</h3>
+<p>La guía contiene las instrucciones necesarias para esta práctica. Estas referencias respaldan los conceptos y quedan para consultas futuras. Material consultado el 30 de octubre de 2026.</p>
+<p>Caso y mini retos de Rueda Libre: <a href="https://moodle.riwi.io/mod/page/view.php?id=7605">https://moodle.riwi.io/mod/page/view.php?id=7605</a></p>
+<p>Bootstrap 5.3 Introducción: <a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">https://getbootstrap.com/docs/5.3/getting-started/introduction/</a></p>
+<p>Grilla y breakpoints: <a href="https://getbootstrap.com/docs/5.3/layout/grid/">https://getbootstrap.com/docs/5.3/layout/grid/</a></p>
+<p>Breakpoints: <a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/">https://getbootstrap.com/docs/5.3/layout/breakpoints/</a></p>
+<p>Espaciado: <a href="https://getbootstrap.com/docs/5.3/utilities/spacing/">https://getbootstrap.com/docs/5.3/utilities/spacing/</a></p>
+<p>Flexbox: <a href="https://getbootstrap.com/docs/5.3/utilities/flex/">https://getbootstrap.com/docs/5.3/utilities/flex/</a></p>
+<p>Display: <a href="https://getbootstrap.com/docs/5.3/utilities/display/">https://getbootstrap.com/docs/5.3/utilities/display/</a></p>
+<p>Formulario HTML en MDN: <a href="https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form">https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form</a></p>
+</section>
+</main></html>
