@@ -1,105 +1,83 @@
-﻿# Diario guía — Rueda Libre v1.5
+# Diario guía — Rueda Libre
 
-Esta base se recibió como referencia. En cada entrada registra lo que hiciste realmente: qué problema resolviste, cómo lo abordaste y qué resultado observaste. No atribuyas la construcción de la base a tu trabajo. Si no mediste un dato, escribe «no medido».
+En cada entrada cuenta qué resolviste, cómo lo hiciste y qué observaste. Añade ejemplos concretos de clases o atributos. Registra los tiempos que hayas medido.
 
-## Antes de empezar el día 2
+## Mi punto de partida
 
-Anota el punto de partida para poder comparar después:
+- Fecha:
+- Commit o versión consultada:
+- Archivo nuevo: pruebas/catalogo-bootstrap.html
+- URL local de la práctica:
+- URL del repositorio:
+- URL publicada de la práctica:
 
-- Commit de referencia de v1.5:
-- Líneas de `css/styles.css`:
-- Declaraciones que distribuyen `.flota` (sin contar comentarios):
-- URL local:
-- URL del repositorio, cuando exista:
-- URL publicada, cuando exista:
+## Mini reto 5 — Página nueva y propuestas de salida
 
-## Día 1 — Revisión adaptable
+- Qué construí hoy:
+- Cómo organicé las siete propuestas:
+- Clases que decidieron el número de columnas:
+- Tiempo medido, si lo registré:
+- Qué diferencia observé frente al CSS Grid del sitio de referencia:
 
-Prueba la página con distintos anchos y registra qué viste en cada uno. Describe si la portada, las columnas de la flota, el menú y las tablas se acomodaron bien; si algo falló, apunta dónde y qué hiciste para corregirlo.
+## Mini reto 6 — Espaciado, beneficios y llamada a la acción
 
-| Ancho | Qué observé | Qué problema resolví y cómo |
+| Clase que probé | Propiedad o comportamiento | Cambio que vi |
 | --- | --- | --- |
-| 360 px | | |
-| 500 px | | |
-| 768 px | | |
-| 900 px | | |
-| 1280 px | | |
+| | | |
+| | | |
+| | | |
+| | | |
+| | | |
 
-Al recorrer el código, identifica las decisiones de distribución que encontraste y explica con tus palabras qué problema resuelve cada una:
+- Cómo coloqué los cuatro beneficios:
+- Qué cambió en la franja a 768 px:
+- Qué entendí sobre padding, margin y gap:
 
-- Portada y galería — Grid organiza filas y columnas. ¿Qué observaste?:
-- Flota — Grid con `auto-fit` ajusta las columnas al espacio disponible. ¿Qué observaste?:
-- Tarjetas — Flexbox en columna permite mantener «Reservar» al final. ¿Qué observaste?:
-- Reservas y fila de campos — Grid organiza las proporciones. ¿Qué observaste?:
-- Encabezado y pie — Flexbox organiza sus bloques en una dirección. ¿Qué observaste?:
-- Los `div` de `.barra`, `.flota` y otros layouts agrupan contenido sin añadir una región semántica. ¿Qué observaste?:
+## Mini reto 7 — Portada, navegación y DevTools
 
-## Día 2 — Cambios y decisiones
+Anota tres observaciones de Styles o Computed. Si hubo un problema, describe su causa y solución; si todo funcionó, explica la regla que comprobaste.
 
-### Mini reto 5 — Reconstrucción
+| Elemento | Propiedad o problema | Clase o causa | Cómo comprobé el resultado |
+| --- | --- | --- | --- |
+| | | | |
+| | | | |
+| | | | |
 
-Escribe qué parte reconstruiste, cuánto tardaste y qué clases utilizaste. Compara el CSS resultante con la referencia: ¿qué cambió y por qué? Si no construiste personalmente v1.5, anota el tiempo original como «no medido» y no lo compares con el tiempo de hoy.
+## Mini reto 8 — Comparación y consulta de opciones
+
+- Cómo distribuí la comparación en ocho y cuatro partes:
+- Cómo asocié cada label con su control:
+- Qué efecto tuvieron required, min, max y step:
+- Qué observé en la URL después de una consulta válida con GET:
+
+| Caso del formulario nuevo | Esperado | Observado |
+| --- | --- | --- |
+| Plan sin seleccionar | Bloquea | |
+| Cantidad vacía | Bloquea | |
+| Cantidad 0 o 7 | Bloquea | |
+| Cantidad 1.5 | Bloquea | |
+| Plan elegido y cantidad 1 o 6 | Supera validación | |
+
+## Revisión de la página nueva
+
+| Ancho | Columnas del catálogo | Qué observé y cómo lo comprobé |
+| --- | --- | --- |
+| 360 px | 1 | |
+| 576 px | 2 | |
+| 768 px | 2 | |
+| 992 px | 3 | |
+| 1200 px | 4 | |
+
+- Resultado de Tab y Shift + Tab:
+- Rutas de imágenes y enlaces internos comprobadas:
+- Capturas guardadas en evidencias/ y qué muestran:
+- Commit publicado y URL que abrí:
+
+## Lo que aprendí hoy
 
 - Qué resolví y cómo:
-- Tiempo de reconstrucción:
-- Clases utilizadas:
-- Diferencias de CSS y conclusión:
+- Qué clase o concepto puedo explicar con un ejemplo:
+- Qué me resultó difícil y cómo avancé:
+- Qué probaría en mi próxima página:
 
-### Mini reto 6 — Exploración de clases
-
-Anota cinco clases que consultaste y el efecto que observaste al revisar o probar cada una.
-
-| Clase | Qué hace | Cómo comprobé su efecto |
-| --- | --- | --- |
-| 1. | | |
-| 2. | | |
-| 3. | | |
-| 4. | | |
-| 5. | | |
-
-### Mini reto 7 — Conflictos
-
-Registra tres conflictos que comprobaste. Cuenta qué se veía mal, cómo encontraste la causa, qué cambiaste y cómo confirmaste la solución.
-
-| Problema observado | Causa | Solución aplicada | Cómo comprobé el resultado |
-| --- | --- | --- | --- |
-| 1. | | | |
-| 2. | | | |
-| 3. | | | |
-
-### Mini reto 8 — Limpieza de CSS
-
-Anota las líneas antes y después, el tiempo que mediste, las ventajas y desventajas del cambio. Cierra con qué aprendiste y si conservarías la solución.
-
-- Líneas antes / después:
-- Tiempo empleado:
-- Qué simplifiqué y cómo:
-- Ventajas observadas:
-- Desventajas observadas:
-- Conclusión:
-
-## Día 2 — Validación del formulario
-
-Prueba cada caso y anota el mensaje o comportamiento real del navegador. Usa datos ficticios. Un servidor estático no procesa la reserva: los datos válidos pueden superar la validación y luego recibir un error HTTP al enviar.
-
-| Campo | Dato de prueba | Resultado esperado | Qué ocurrió |
-| --- | --- | --- | --- |
-| Nombre | Al | Bloquea | |
-| Documento | abc123 | Bloquea | |
-| Documento | 123456 | Acepta el formato | |
-| Correo | ana | Bloquea | |
-| Celular | 1234567890 | Bloquea | |
-| Fecha | 2026-10-31 | Bloquea | |
-| Cantidad | 7 | Bloquea | |
-| Cantidad | 1.5 | Bloquea | |
-| Políticas | Sin marcar | Bloquea | |
-| Todos válidos | Datos ficticios | Supera validación; sin backend no reserva | |
-
-## Día 2 — Red, teclado y accesibilidad
-
-Describe las pruebas que hiciste, el resultado y cómo resolviste cada problema. Repite la prueba después del cambio y registra el resultado.
-
-- Estado HTTP del documento y sus recursos; respuesta de una ruta inexistente:
-- Recorrido con teclado y comportamiento del foco:
-- Contraste comprobado y método usado:
-- Problema encontrado, corrección aplicada y resultado de la repetición:
+La comparación se basa en las decisiones de diseño y el comportamiento observado. El CSS del sitio original se conserva como referencia.

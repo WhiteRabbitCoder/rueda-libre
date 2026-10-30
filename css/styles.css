@@ -1,4 +1,4 @@
-/* 01 IDENTIDAD - conservar durante la migración */
+/* 01 IDENTIDAD - referencia de identidad visual */
 :root {
   --verde-ruta: #1e7a4f;
   --naranja-pedal: #f39a2b;
@@ -37,7 +37,7 @@ a:hover { text-decoration-thickness: .18em; }
 .salto:focus { top: 1rem; }
 .texto-secundario { color: var(--gris-asfalto); }
 
-/* 03 DISTRIBUCIÓN BASE - sustituir por container y utilidades el día 2 */
+/* 03 DISTRIBUCIÓN BASE - referencia de distribución con CSS propio */
 .contenedor { width: min(100% - 2rem, 75rem); margin-inline: auto; }
 main { padding-block: var(--espacio-4); }
 section { margin-bottom: var(--espacio-4); }
@@ -51,7 +51,7 @@ section { margin-bottom: var(--espacio-4); }
 .menu a.activo { color: var(--naranja-pedal); font-weight: 600; }
 .encabezado :focus-visible { outline-color: var(--naranja-pedal); }
 
-/* 04 DISTRIBUCIÓN DE INICIO - eliminar al migrar inicio */
+/* 04 DISTRIBUCIÓN DE INICIO - referencia para comparar con la página nueva */
 .portada { display: grid; grid-template-columns: 1fr; align-items: center; gap: var(--espacio-4); min-height: 55vh; }
 .portada img { border-radius: var(--radio); }
 .servicios, .rutas { display: grid; grid-template-columns: 1fr; gap: var(--espacio-3); }
@@ -69,7 +69,7 @@ section { margin-bottom: var(--espacio-4); }
 .nuevo { position: absolute; right: 1rem; top: 1rem; background: var(--naranja-pedal); color: var(--azul-noche); padding: .2rem .7rem; border-radius: 1rem; font-weight: 600; }
 .aviso { padding: var(--espacio-3); border-left: 4px solid var(--verde-ruta); background: var(--blanco); }
 
-/* 06 TARIFAS - conservar apariencia; migrar distribución */
+/* 06 TARIFAS - conservar apariencia; observar su distribución */
 .layout-tarifas { display: grid; grid-template-columns: 1fr; gap: var(--espacio-3); }
 .tablas { min-width: 0; }
 table { width: 100%; border-collapse: collapse; margin-bottom: var(--espacio-3); font-size: .8rem; }
@@ -78,7 +78,7 @@ th, td { padding: .45rem .3rem; border: 1px solid var(--borde); text-align: left
 thead { background: var(--azul-noche); color: var(--blanco); }
 tbody { background: var(--blanco); }
 
-/* 07 RESERVAS - conservar controles; migrar distribución */
+/* 07 RESERVAS - conservar controles; observar su distribución */
 .layout-reservas, .fila-campos { display: grid; grid-template-columns: 1fr; gap: var(--espacio-3); }
 .layout-reservas > * { min-width: 0; }
 fieldset { min-width: 0; margin: 0 0 var(--espacio-3); padding: var(--espacio-3); border: 1px solid var(--borde); border-radius: var(--radio); }

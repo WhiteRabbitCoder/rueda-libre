@@ -1,0 +1,29 @@
+Revisión del repositorio — 30 de octubre de 2026
+
+Alcance: guía publicada en guia/index.html, diario y sitio de referencia.
+
+Correcciones
+- Secuencia única de creación de una página nueva con contenido propio.
+- Ejemplos acumulativos con lugar de inserción, un main y un h1.
+- Navegación interna con ID existentes y únicos.
+- Explicaciones coherentes de grilla, gutters, espaciado y validación.
+- Diario alineado con la página nueva y observaciones reales de DevTools.
+- Publicación explicada con la ruta del archivo de práctica en Pages.
+- Formulario de referencia: muestra el resultado de la validación en la página.
+
+Comprobaciones realizadas
+- Revisión con documentación de Bootstrap 5.3 y de formularios HTML de MDN.
+- Comprobación estática de las cuatro páginas del repo y de un montaje temporal
+  de los fragmentos: rutas locales, anclas, ID, label, referencias aria, h1 y main.
+- Montaje de los ejemplos en Edge con Bootstrap 5.3.8 descargado desde el CDN.
+- Catálogo a 360, 575, 576, 767, 768, 991, 992, 1199, 1200 y 1280 px:
+  reparto esperado de 1, 2, 3 y 4 columnas; sin desborde horizontal.
+- Guía a 360 px: lectura móvil sin desborde y 22 destinos del índice válidos.
+- Formulario del montaje: cantidad vacía, 0, 7 y 1.5 inválidas; 1 y 6 válidas.
+- Consulta GET válida: URL con plan=urbano, cantidad=2 y fragmento #consulta.
+- Formulario de referencia: los datos inválidos no muestran éxito; con datos
+  válidos aparece el resultado sin navegación; al editar se borra el resultado.
+- Revisión de sintaxis del apoyo JavaScript con node --check.
+
+El montaje usado para comprobar los fragmentos se retiró del repositorio.
+La página de práctica es el ejercicio que construyen los coders.

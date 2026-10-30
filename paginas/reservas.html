@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="../js/reservas.js" defer></script>
 </head>
 <body>
   <a class="salto" href="#contenido">Saltar al contenido</a>
@@ -21,7 +22,7 @@
     </div>
   </header>
   <main id="contenido" class="contenedor">
-<h1>Reserva tu bicicleta</h1><p class="aviso">Formulario educativo. Prueba con datos ficticios. No hay un servicio que procese reservas: un envío válido por POST puede mostrar un error del servidor estático; eso no confirma una reserva.</p>
+<h1>Reserva tu bicicleta</h1><p class="aviso">Observa cómo el navegador interpreta required, type, pattern y los límites numéricos para validar los campos antes del envío. method="post" define cómo se organiza la solicitud del formulario.</p>
 <div class="layout-reservas"><section id="formulario"><h2>Formulario de reserva</h2><form action="#formulario" method="post">
   <fieldset><legend>Tus datos</legend>
     <div class="campo"><label for="nombre">Nombre completo</label><input id="nombre" name="nombre" type="text" autocomplete="name" minlength="3" required></div>
@@ -46,12 +47,13 @@
   </fieldset>
   <fieldset><legend>Confirmación</legend>
     <div class="campo"><label for="comentarios">Comentarios opcionales</label><textarea id="comentarios" name="comentarios" rows="4" maxlength="300"></textarea></div>
-    <p id="politicas">La solicitud depende de disponibilidad. Espera la confirmación del equipo. No se realizan pagos en esta demostración.</p>
+    <p id="politicas">El navegador comprueba que esta casilla esté marcada al intentar enviar el formulario. Observa cómo aria-describedby relaciona la casilla con esta explicación.</p>
     <label class="opcion" for="acepta"><input id="acepta" name="acepta" type="checkbox" value="si" aria-describedby="politicas" required> Acepto las políticas de alquiler</label>
   </fieldset>
   <button class="boton" type="submit">Probar validación de la reserva</button>
+  <p id="resultado-validacion" role="status"></p>
 </form></section>
-<aside class="tarjeta"><h2>Contacto y horario</h2><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a><dl><dt>Lunes a viernes</dt><dd>7 a. m. a 7 p. m.</dd><dt>Sábados, domingos y festivos</dt><dd>6 a. m. a 2 p. m.</dd></dl><p>El correo y el número de WhatsApp son datos de ejemplo. No envíes información personal.</p></aside></div>
+<aside class="tarjeta"><h2>Contacto y horario</h2><a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a><dl><dt>Lunes a viernes</dt><dd>7 a. m. a 7 p. m.</dd><dt>Sábados, domingos y festivos</dt><dd>6 a. m. a 2 p. m.</dd></dl><p>El bloque usa una lista de descripción para emparejar cada día con su horario. El correo se conecta mediante mailto: y el botón de WhatsApp mediante un enlace.</p></aside></div>
   </main>
   <footer class="pie">
     <div class="contenedor pie-bloques">
@@ -63,3 +65,4 @@
   <a class="boton whatsapp" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
 </body>
 </html>
+

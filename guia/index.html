@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de Bootstrap — Rueda Libre</title><meta name="description" content="Crea una página nueva con Bootstrap: grilla, utilidades, formularios y publicación paso a paso.">
+<style>body{margin:0;background:#f6f4fa;color:#202331;font:18px/1.75 system-ui,sans-serif}header,main{max-width:960px;margin:auto;padding:32px}header{padding-bottom:0}section{background:white;margin:24px 0;padding:40px;border-radius:14px;box-shadow:0 5px 25px #19103a08}h1,h2,h3{color:#111;line-height:1.2}h1{font-size:42px}h2{font-size:30px}h3{font-size:22px;margin-top:30px}.eyebrow{font-size:12px;letter-spacing:.1em;color:#6944b2;font-weight:800}pre{background:#f1f2f6;border:1px solid #dddfe7;border-radius:8px;padding:20px;overflow:auto;font:14px/1.65 Consolas,monospace;white-space:pre}table{width:100%;border-collapse:collapse;font-size:15px;margin:24px 0}td,th{padding:12px;text-align:left;border:1px solid #d9d9d9;vertical-align:top}th{background:#eeeaf7}aside{padding:18px 22px;background:#f3effa;border-left:4px solid #7755bd;margin:24px 0}a{color:#52339a;overflow-wrap:anywhere}nav{columns:2;font-size:14px}nav a{display:block;margin:6px 0}@media(max-width:600px){main,header{padding:14px}section{padding:22px}nav{columns:1}}@media print{body{background:white}header nav{display:none}section{break-before:page;box-shadow:none;margin:0;padding:0}pre{white-space:pre-wrap;font-size:9px}main{padding:0}}*{box-sizing:border-box}body{overflow-wrap:break-word}header,main{width:100%}pre{max-width:100%;overflow:auto}code{font-family:Consolas,monospace}p code,td code{overflow-wrap:anywhere}pre code{font-size:inherit}a:focus-visible,summary:focus-visible{outline:3px solid #6944b2;outline-offset:3px}.tabla-scroll{overflow:auto}details{padding:16px;background:#f3effa;border-radius:8px}summary{cursor:pointer;font-weight:600}</style></head>
+<body><header><p class="eyebrow">RIWI · CLAN NAKAMOTO · SEMANA 2 DÍA 2</p><h1>Crea una página nueva con Bootstrap</h1><p>Ideas para rodar: aprende observando cómo cambia cada bloque.</p><p><a href="../index.html">Ver el sitio de referencia</a></p><nav aria-label="Contenido de la guía"><a href="#s0">01 Qué vas a construir</a>
+<a href="#s1">02 Ubica los archivos y guarda tu punto de partida</a>
+<a href="#s2">03 Entiende qué aporta Bootstrap</a>
+<a href="#s3">04 Lee la grilla de doce partes</a>
+<a href="#s4">05 Comprende los breakpoints</a>
+<a href="#s5">06 Crea el archivo nuevo</a>
+<a href="#s6">07 Crea propuestas de salida con una grilla</a>
+<a href="#s7">08 Aprende a leer las utilidades</a>
+<a href="#s8">09 Añade cuatro beneficios</a>
+<a href="#s9">10 Añade una llamada a la acción</a>
+<a href="#s10">11 Observa el modelo de caja</a>
+<a href="#s11">12 Inserta una portada en dos columnas</a>
+<a href="#s12">13 Inserta encabezado y pie</a>
+<a href="#s13">14 Lee las reglas con DevTools</a>
+<a href="#s14">15 Añade una comparación en proporción 8/4</a>
+<a href="#s15">16 Añade un formulario de consulta</a>
+<a href="#s16">17 Explica la validación y la URL</a>
+<a href="#s17">18 Comprueba el resultado</a>
+<a href="#s18">19 Escribe lo que resolviste en tu diario</a>
+<a href="#s19">20 Guarda y publica tu página</a>
+<a href="#s20">21 Si algo falla, busca la causa</a>
+<a href="#s21">22 Cierre de la práctica y fuentes</a>
+</nav></header>
+<main><section id="s0"><h2>01. Qué vas a construir</h2>
+<p>Crearás una página nueva de <strong>ideas para salir a rodar</strong> en <code>pruebas/catalogo-bootstrap.html</code>. Practicarás grilla, espaciado, Flexbox y validación nativa. El sitio actual sirve como referencia; tu página tendrá contenido y distribución propios.</p>
+<p>Al terminar podrás explicar qué clase cambia cada bloque, predecir cuántas tarjetas caben por fila y corregir una ruta o un problema de distribución usando DevTools.</p>
+<h3>Antes de comenzar</h3><p>Necesitas etiquetas semánticas, clases CSS, el modelo de caja y una primera experiencia con Flexbox o Grid. Abre esta carpeta en VS Code y usa Live Server para ver el resultado.</p>
+<p>La práctica está adaptada a una página independiente. Los mini retos se organizan así:</p>
+<div class="tabla-scroll"><table><tr><th>Etapa</th><th>Resultado</th></tr><tr><td>Mini reto 5</td><td>Página nueva y siete propuestas de salida con grilla responsive</td></tr><tr><td>Mini reto 6</td><td>Cuatro beneficios y una llamada a la acción</td></tr><tr><td>Mini reto 7</td><td>Portada, navegación y lectura de estilos calculados</td></tr><tr><td>Mini reto 8</td><td>Tabla, consulta de opciones, revisión y publicación</td></tr></table></div>
+<p>Los bloques se agregan en orden. Cada ejemplo indica su lugar: <strong>insertar</strong> añade un bloque; <strong>reemplazar</strong> afecta solo el bloque señalado. Los ejemplos parciales se identifican como fragmentos.</p>
+</section>
+<section id="s1"><h2>02. Ubica los archivos y guarda tu punto de partida</h2>
+<div class="tabla-scroll"><table><tr><th>Archivo</th><th>Uso en esta práctica</th></tr>
+<tr><td>index.html, paginas/ y css/styles.css</td><td>Consultar cómo se resolvió el sitio original</td></tr><tr><td>js/reservas.js</td><td>Apoyo de demostración para observar la validación del formulario de referencia</td></tr><tr><td>img/</td><td>Fotos JPG locales y logo SVG disponibles para tu página</td></tr><tr><td>guia/index.html</td><td>La guía que estás leyendo</td></tr><tr><td>bitacora.txt</td><td>Diario de decisiones y resultados</td></tr><tr><td>evidencias/</td><td>Capturas y observaciones de tu práctica</td></tr><tr><td>pruebas/catalogo-bootstrap.html</td><td>Archivo nuevo que crearás en el paso 6</td></tr></table></div>
+<p>Si descargaste un ZIP, extráelo completo. Si usas Git, consulta primero el estado del repositorio:</p><pre><code>git status
+git log -3 --oneline</code></pre><p><code>status</code> muestra cambios locales; <code>log</code> muestra versiones guardadas. Anota el commit de partida en el diario. Si el ZIP no incluye Git, inicialízalo una sola vez:</p><pre><code>git init -b main
+git add .
+git commit -m &quot;Guarda la base de Rueda Libre&quot;</code></pre><p>Antes del primer commit, comprueba <code>git config user.name</code> y <code>git config user.email</code>. Deben ser tus datos; usa un correo verificado en tu cuenta de GitHub o el correo noreply que aparece en sus ajustes de correo.</p>
+</section>
+<section id="s2"><h2>03. Entiende qué aporta Bootstrap</h2>
+
+<p>Imagina que quieres separar dos elementos, centrar un título y organizar cuatro bloques. Con CSS propio escribes las reglas y decides sus valores. Con un framework eliges entre reglas disponibles. Sigues tomando decisiones de diseño: el framework no elige por ti qué debe ser importante ni cómo se entiende el contenido.</p>
+<pre>/* Una regla escrita por nosotros */
+.separacion { padding: 1rem; }
+
+&lt;!-- Una utilidad equivalente de Bootstrap con su escala por defecto --&gt;
+&lt;div class=&quot;p-3&quot;&gt;Contenido con espacio interior&lt;/div&gt;</pre>
+<p>La clase p-3 representa padding de 1rem en los cuatro lados con la configuración predeterminada de Bootstrap. El 3 es una posición en una escala, no tres píxeles. Usar una escala ayuda a repetir espacios coherentes.</p>
+<div class="tabla-scroll"><table>
+<tr><th>Herramienta</th><th>Qué resuelve</th><th>Qué sigues decidiendo</th></tr>
+<tr><td>Grilla</td><td>Anchos y distribución responsive</td><td>Cuántas columnas necesita cada sección</td></tr>
+<tr><td>Utilidades</td><td>Ajustes concretos de CSS</td><td>Espacio, alineación y jerarquía</td></tr>
+<tr><td>Componentes</td><td>Patrones como navbar o modal</td><td>Contenido, comportamiento y personalización</td></tr>
+</table></div>
+<h3>Por qué conservamos los estilos originales</h3>
+<p>Los colores de Rueda Libre, sus fuentes, el aspecto de sus tablas y los estados de foco pertenecen a su identidad. La práctica de hoy te permite comparar la distribución de Bootstrap con la página original, que queda intacta como referencia.</p>
+<h3>Qué es un CDN</h3>
+<p>Es un servicio que entrega archivos desde una red de servidores. Al usar una URL de CDN, el navegador descarga la hoja CSS o el bundle de JavaScript. Si no hay conexión, ese recurso puede no estar disponible. Usaremos Bootstrap 5.3.8 para que todos practiquen con la misma versión.</p>
+<p>La grilla y las utilidades de esta práctica funcionan con la hoja CSS. El JavaScript de Bootstrap se utiliza en componentes interactivos como menús desplegables o modales.</p>
+
+</section>
+<section id="s3"><h2>04. Lee la grilla de doce partes</h2>
+
+<p>La grilla estándar de Bootstrap se organiza con un contenedor, una fila y columnas. Aunque su nombre se traduzca como cuadrícula, esta grilla usa Flexbox por debajo. No es el mismo mecanismo que display: grid de nuestra flota original.</p>
+<pre>&lt;div class=&quot;container&quot;&gt;
+  &lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;Primer bloque&lt;/div&gt;
+    &lt;div class=&quot;col-12 col-md-6&quot;&gt;Segundo bloque&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+<p>container centra el contenido, agrega espacio lateral y limita su ancho según el tamaño de pantalla. row agrupa las columnas y permite que pasen a otra línea. Cada col-* indica cuántas de doce partes ocupa ese bloque. El contenido real queda dentro de la columna. Puedes usar etiquetas semánticas como section o article si mantienen esa relación.</p>
+<div class="tabla-scroll"><table>
+<tr><th>Clase</th><th>Fracción del ancho de la fila</th><th>Resultado con bloques iguales</th></tr>
+<tr><td>col-12</td><td>12 / 12 = todo el ancho</td><td>1 por fila</td></tr>
+<tr><td>col-6</td><td>6 / 12 = la mitad</td><td>2 por fila</td></tr>
+<tr><td>col-4</td><td>4 / 12 = un tercio</td><td>3 por fila</td></tr>
+<tr><td>col-3</td><td>3 / 12 = un cuarto</td><td>4 por fila</td></tr>
+</table></div>
+<h3>De dónde sale el espacio entre columnas</h3>
+<p>g-4 configura gutters horizontales y verticales de 1.5rem en la escala predeterminada. En horizontal se construyen con relleno en las columnas y márgenes negativos en la fila. Por eso no conviene dejar una row sin un contenedor apropiado: puede sobresalir. gx-* y gy-* permiten variar cada dirección por separado.</p>
+<aside>No pongas siete artículos sueltos junto a las columnas. Cada propuesta necesita su propia envoltura col-*. Si un bloque ocupa más espacio del que queda en la fila, pasa a la siguiente; no tiene que completarse una fila de doce antes de cerrar el HTML.</aside>
+
+</section>
+<section id="s4"><h2>05. Comprende los breakpoints</h2>
+
+<p>Un breakpoint es un ancho a partir del cual se aplica un cambio. Bootstrap trabaja mobile-first: primero define el tamaño pequeño y luego añade reglas para anchos mayores. Los nombres sm o lg se refieren al ancho del viewport en píxeles CSS, no a una marca de celular o a un dispositivo concreto.</p>
+<div class="tabla-scroll"><table>
+<tr><th>Prefijo</th><th>Se activa desde</th><th>Ejemplo</th></tr>
+<tr><td>Sin prefijo</td><td>0 px</td><td>col-12</td></tr>
+<tr><td>sm</td><td>576 px</td><td>col-sm-6</td></tr>
+<tr><td>md</td><td>768 px</td><td>col-md-6</td></tr>
+<tr><td>lg</td><td>992 px</td><td>col-lg-4</td></tr>
+<tr><td>xl</td><td>1200 px</td><td>col-xl-3</td></tr>
+<tr><td>xxl</td><td>1400 px</td><td>col-xxl-2</td></tr>
+</table></div>
+<pre>&lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
+  &lt;!-- Una propuesta --&gt;
+&lt;/div&gt;</pre>
+<p>En este ejemplo el bloque ocupa todo el ancho al principio. Desde 576 px ocupa la mitad. Desde 992 px ocupa un tercio. Desde 1200 px ocupa un cuarto. Una regla sigue aplicándose por encima de su breakpoint hasta que otra la sustituye. A 768 px, como no hay col-md-* en este ejemplo, sigue vigente col-sm-6.</p>
+<h3>Predice y luego observa</h3>
+<div class="tabla-scroll"><table>
+<tr><th>Ancho de prueba</th><th>Propuestas por fila</th><th>Por qué</th></tr>
+<tr><td>360 o 575 px</td><td>1</td><td>col-12</td></tr>
+<tr><td>576, 768 o 991 px</td><td>2</td><td>col-sm-6</td></tr>
+<tr><td>992 o 1199 px</td><td>3</td><td>col-lg-4</td></tr>
+<tr><td>1200 o 1280 px</td><td>4</td><td>col-xl-3</td></tr>
+</table></div>
+<p>En tu página nueva usaremos siete propuestas y este reparto de una, dos, tres y cuatro columnas. Predice el resultado antes de cambiar el ancho.</p>
+
+</section>
+<section id="s5"><h2>06. Crea el archivo nuevo</h2>
+<p>Crea <code>pruebas/</code> y dentro <code>catalogo-bootstrap.html</code>. Copia esta estructura completa una sola vez. A partir de aquí añadirás fragmentos a ese documento.</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;es&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+  &lt;title&gt;Ideas para rodar | Rueda Libre&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- Inserta aquí el encabezado del paso 13. --&gt;
+  &lt;main id=&quot;contenido&quot; class=&quot;container py-5&quot;&gt;
+    &lt;h1 class=&quot;mb-4&quot;&gt;Ideas para tu próxima salida&lt;/h1&gt;
+    &lt;!-- Inserta aquí la portada del paso 12. --&gt;
+    &lt;section id=&quot;catalogo&quot; class=&quot;mb-5&quot; aria-labelledby=&quot;catalogo-titulo&quot;&gt;
+      &lt;h2 id=&quot;catalogo-titulo&quot; class=&quot;mb-4&quot;&gt;Elige una experiencia&lt;/h2&gt;
+      &lt;div class=&quot;row g-4&quot;&gt;
+        &lt;!-- Inserta aquí las siete columnas del paso 7. --&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+    &lt;!-- Añade aquí beneficios, llamada a la acción, tabla y consulta, en ese orden. --&gt;
+  &lt;/main&gt;
+  &lt;!-- Inserta aquí el pie del paso 13. --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre><p><code>container</code> centra y limita el ancho del contenido; <code>py-5</code> añade espacio interior vertical. Conserva un solo <code>main</code> y un solo <code>h1</code>. Las secciones internas usan <code>h2</code>.</p><p>Abre el archivo con Live Server. En Network, filtra por <code>bootstrap</code> y comprueba que la hoja CSS carga correctamente. El contenido debe quedar separado de los bordes.</p>
+</section>
+<section id="s6"><h2>07. Crea propuestas de salida con una grilla</h2>
+<p>Inserta esta columna dentro de la <code>row g-4</code> del catálogo. Es un fragmento: no vuelvas a copiar el documento completo.</p><pre><code>&lt;div class=&quot;col-12 col-sm-6 col-lg-4 col-xl-3&quot;&gt;
+  &lt;article class=&quot;h-100 d-flex flex-column gap-2 p-3 border rounded-3&quot;&gt;
+    &lt;img src=&quot;../img/urbana.jpg&quot; class=&quot;img-fluid rounded&quot; loading=&quot;lazy&quot;
+      alt=&quot;Bicicleta urbana turquesa junto a una pared de ladrillo&quot;&gt;
+    &lt;h3 class=&quot;fs-5&quot;&gt;Primer paseo urbano&lt;/h3&gt;
+    &lt;p class=&quot;mb-0&quot;&gt;Una salida tranquila para ganar confianza sobre la bicicleta.&lt;/p&gt;
+    &lt;p class=&quot;fw-semibold text-success&quot;&gt;Ritmo suave&lt;/p&gt;
+    &lt;a href=&quot;#consulta&quot; class=&quot;mt-auto align-self-start text-dark bg-warning p-2 rounded&quot;&gt;
+      Explorar esta opción
+    &lt;/a&gt;
+  &lt;/article&gt;
+&lt;/div&gt;</code></pre><p><code>h-100</code> hace que el artículo ocupe el alto de su columna. <code>d-flex flex-column</code> organiza el contenido verticalmente; <code>mt-auto</code> usa el espacio sobrante para empujar el enlace al final. <code>align-self-start</code> evita que ese enlace ocupe todo el ancho.</p>
+<p><code>img-fluid</code> limita el ancho y conserva la proporción de cada foto. Para un recorte uniforme puedes probar <code>class="w-100 object-fit-cover rounded" height="180"</code> en lugar de <code>img-fluid</code>; la altura fija y <code>object-fit-cover</code> permiten comparar proporción natural con recorte.</p>
+<p>Crea seis propuestas adicionales con contenido nuevo. Usa estas ideas como punto de partida:</p><div class="tabla-scroll"><table><tr><th>Propuesta</th><th>Foto disponible</th></tr><tr><td>Primer paseo urbano</td><td>urbana.jpg</td></tr><tr><td>Viaja ligero</td><td>plegable.jpg</td></tr><tr><td>Entre árboles</td><td>montana.jpg</td></tr><tr><td>Camino de grava</td><td>gravel.jpg</td></tr><tr><td>Un impulso extra</td><td>electrica.jpg</td></tr><tr><td>Pequeñas primeras vueltas</td><td>infantil.jpg</td></tr><tr><td>Pedalear de a dos</td><td>tandem.jpg</td></tr></table></div>
+<p>Cada propuesta necesita título, descripción, foto con <code>alt</code> y enlace. Desde <code>pruebas/</code>, <code>../img/</code> sube un nivel y entra a las imágenes. El enlace <code>#consulta</code> llegará a la sección que crearás en el paso 16.</p>
+<p>Comprueba una, dos, tres y cuatro columnas a 360, 576, 992 y 1200 px. Anota las clases que producen cada cambio.</p>
+</section>
+<section id="s7"><h2>08. Aprende a leer las utilidades</h2>
+
+<p>Una utilidad suele resolver una propiedad concreta. En vez de crear .espacio-abajo para una sola sección, puedes aplicar mb-4. La notación de espaciado combina la propiedad, el lado, un breakpoint opcional y un valor.</p>
+<div class="tabla-scroll"><table>
+<tr><th>Parte</th><th>Significado</th><th>Ejemplo</th></tr>
+<tr><td>m / p</td><td>margin / padding</td><td>mb-3 / p-3</td></tr>
+<tr><td>t / b</td><td>arriba / abajo</td><td>mt-2 / pb-4</td></tr>
+<tr><td>s / e</td><td>inicio / final de la dirección de escritura</td><td>ms-2 / pe-3</td></tr>
+<tr><td>x / y</td><td>ambos lados horizontales / verticales</td><td>px-3 / py-5</td></tr>
+<tr><td>md, lg…</td><td>desde ese ancho en adelante</td><td>mb-md-0</td></tr>
+</table></div>
+<div class="tabla-scroll"><table>
+<tr><th>Valor</th><th>Espacio por defecto</th></tr>
+<tr><td>0</td><td>0</td></tr>
+<tr><td>1</td><td>0.25rem</td></tr>
+<tr><td>2</td><td>0.5rem</td></tr>
+<tr><td>3</td><td>1rem</td></tr>
+<tr><td>4</td><td>1.5rem</td></tr>
+<tr><td>5</td><td>3rem</td></tr>
+<tr><td>auto</td><td>Margen automático cuando la utilidad lo admite</td></tr>
+</table></div>
+<p>Con la configuración habitual de 16 px para 1rem, p-3 equivale a 16 px. Si cambia el tamaño raíz, cambia su equivalencia. mb-4 mb-md-0 deja 1.5rem debajo en tamaños pequeños y retira ese margen desde 768 px.</p>
+<h3>Otras clases que usaremos</h3>
+<p>fw-bold resalta el peso del texto; fs-5 elige un tamaño de fuente; text-center centra texto; lead destaca un párrafo. bg-warning asigna un fondo y text-dark un texto oscuro. text-bg-dark combina un fondo oscuro con texto claro. Elegir una utilidad de color no reemplaza revisar el contraste.</p>
+<aside>En Bootstrap 5 usa ms-* y me-* para inicio y final. No copies ml-* o mr-* de ejemplos antiguos. No todos los nombres aceptan un breakpoint: por ejemplo, fs-md-5 no viene incluido como utilidad estándar. Usa las clases que existen.</aside>
+
+</section>
+<section id="s8"><h2>09. Añade cuatro beneficios</h2>
+
+<p>En pruebas/catalogo-bootstrap.html, agrega esta sección dentro de main, después del cierre de la sección del catálogo. Usa solo clases de Bootstrap: no agregues style, una etiqueta style ni una hoja propia.</p>
+<pre>&lt;section id=&quot;beneficios&quot; class=&quot;py-5&quot; aria-labelledby=&quot;beneficios-titulo&quot;&gt;
+  &lt;h2 id=&quot;beneficios-titulo&quot; class=&quot;text-center mb-4&quot;&gt;
+    ¿Por qué Rueda Libre?
+  &lt;/h2&gt;
+  &lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Bicicletas revisadas&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Revisamos cada bicicleta antes de entregarla.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;En cada alquiler&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Equipo incluido&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Sales con casco y candado.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;Sin costo adicional&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Opciones para explorar&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Compara distintos tipos de salida.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;Según tus preferencias&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-12 col-sm-6 col-lg-3&quot;&gt;
+      &lt;h3 class=&quot;fs-5 fw-bold&quot;&gt;Distintos ritmos&lt;/h3&gt;
+      &lt;p class=&quot;mb-1&quot;&gt;Encuentra una experiencia adecuada para tu ritmo.&lt;/p&gt;
+      &lt;p class=&quot;fw-semibold text-success&quot;&gt;Paseo, aventura o compañía&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+<p>Cada beneficio ocupa una columna completa al principio, media desde sm y un cuarto desde lg. Observa que esta sección puede usar breakpoints distintos a los de la flota: cada contenido tiene sus necesidades. Aquí h3 corresponde al subtítulo de un beneficio dentro de una sección h2.</p>
+
+
+</section>
+<section id="s9"><h2>10. Añade una llamada a la acción</h2>
+
+<p>Debajo de los beneficios, todavía dentro de main, agrega una franja con texto y un enlace a la consulta de opciones. En móvil quedará apilada; desde md sus elementos compartirán una fila.</p>
+<pre>&lt;section class=&quot;p-4 rounded-3 text-bg-dark&quot;
+  aria-labelledby=&quot;rodar-titulo&quot;&gt;
+  &lt;div class=&quot;d-flex flex-column flex-md-row align-items-center
+    justify-content-between gap-3&quot;&gt;
+    &lt;div&gt;
+      &lt;h2 id=&quot;rodar-titulo&quot; class=&quot;mb-2&quot;&gt;¿Listo para rodar?&lt;/h2&gt;
+      &lt;p class=&quot;mb-0&quot;&gt;Elige tu bicicleta y prepara tu recorrido.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;img src=&quot;../img/logo.svg&quot; alt=&quot;&quot; width=&quot;80&quot; height=&quot;80&quot;
+      class=&quot;d-none d-md-block&quot;&gt;
+    &lt;a href=&quot;#consulta&quot;
+      class=&quot;d-inline-block bg-warning text-dark fw-semibold
+        px-4 py-3 rounded-3 text-decoration-none&quot;&gt;
+      Consultar opciones
+    &lt;/a&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+<p>flex-column coloca el eje principal en vertical. flex-md-row lo vuelve horizontal desde 768 px. justify-content-between reparte el espacio sobrante en ese eje; align-items-center centra en el eje cruzado. gap-3 mantiene una separación de 1rem cuando no sobra espacio.</p>
+<p>d-none oculta la imagen y la saca de la distribución. d-md-block la muestra desde md. El alt vacío es adecuado porque este logo es decorativo: el nombre del negocio ya está en el contexto. No ocultes con esta técnica información necesaria para consultar opciones.</p>
+<h3>Por qué el enlace sigue siendo un enlace</h3>
+<p>Consultar opciones lleva a la sección #consulta de esta página, por eso usamos a. Un button serviría para una acción dentro del contexto actual, como enviar un formulario. Que un enlace tenga fondo y relleno no cambia su función. El aspecto destacado de hoy se consigue con utilidades.</p>
+<h3>Comprueba y registra</h3>
+<p>A 767 px la imagen debe estar oculta; a 768 px debe aparecer y la franja pasar a fila. Usa Tab para llegar al enlace. En la bitácora explica cinco clases que consultaste y probaste, y guarda el mini reto en Git.</p>
+
+</section>
+<section id="s10"><h2>11. Observa el modelo de caja</h2>
+<p>Selecciona una propuesta con Inspeccionar y abre el diagrama de caja. En este ejemplo, <code>p-3</code> da 1rem de espacio interior; <code>border</code> dibuja el borde; <code>gap-2</code> separa los hijos del artículo; <code>g-4</code> separa las columnas de la fila.</p><p>Prueba cambiar solo <code>p-3</code> por <code>p-4</code>. El contenido debe alejarse del borde sin cambiar el número de columnas. Después compara <code>gap-2</code> con <code>gap-4</code>: ahora cambia la separación entre elementos internos.</p><p>Registra la propiedad calculada y su valor. Este ejercicio permite relacionar cada clase con un cambio visible.</p>
+</section>
+<section id="s11"><h2>12. Inserta una portada en dos columnas</h2>
+<p>Inserta este fragmento en el espacio de portada señalado en el documento inicial, justo después del <code>h1</code> y antes del catálogo.</p><pre><code>&lt;section class=&quot;row g-4 align-items-center mb-5&quot; aria-labelledby=&quot;portada-titulo&quot;&gt;
+  &lt;div class=&quot;col-12 col-md-6&quot;&gt;
+    &lt;h2 id=&quot;portada-titulo&quot;&gt;Encuentra tu próximo plan&lt;/h2&gt;
+    &lt;p class=&quot;lead&quot;&gt;Ciudad, caminos y nuevas formas de disfrutar la bicicleta.&lt;/p&gt;
+    &lt;a href=&quot;#catalogo&quot; class=&quot;d-inline-block p-2 bg-warning text-dark rounded&quot;&gt;Ver experiencias&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;col-12 col-md-6&quot;&gt;
+    &lt;img src=&quot;../img/gravel.jpg&quot; class=&quot;img-fluid rounded-3&quot; loading=&quot;lazy&quot;
+      alt=&quot;Ciclista recorriendo un camino de grava entre campos&quot;&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre><p><code>col-md-6</code> reparte la fila en mitades desde 768 px; antes, cada columna ocupa todo el ancho. <code>align-items-center</code> centra verticalmente el texto respecto a la imagen. La portada usa un <code>h2</code> porque el título principal ya existe.</p>
+</section>
+<section id="s12"><h2>13. Inserta encabezado y pie</h2>
+<p>En el documento inicial, reemplaza el comentario de encabezado por este fragmento. Queda antes de <code>main</code>.</p><pre><code>&lt;header class=&quot;bg-dark text-white py-3&quot;&gt;
+  &lt;div class=&quot;container d-flex flex-column flex-md-row align-items-center justify-content-between gap-3&quot;&gt;
+    &lt;a class=&quot;text-white fw-bold&quot; href=&quot;../index.html&quot;&gt;Rueda Libre&lt;/a&gt;
+    &lt;nav aria-label=&quot;Secciones de la página&quot;&gt;
+      &lt;ul class=&quot;d-flex flex-wrap justify-content-center gap-3 list-unstyled m-0&quot;&gt;
+        &lt;li&gt;&lt;a class=&quot;text-white&quot; href=&quot;#catalogo&quot;&gt;Experiencias&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;text-white&quot; href=&quot;#beneficios&quot;&gt;Beneficios&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class=&quot;text-white&quot; href=&quot;#consulta&quot;&gt;Consulta&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</code></pre><p>Reemplaza el comentario de pie por este segundo fragmento, después de <code>main</code>.</p><pre><code>&lt;footer class=&quot;border-top py-4&quot;&gt;
+  &lt;div class=&quot;container d-flex flex-column flex-md-row justify-content-between gap-2&quot;&gt;
+    &lt;p class=&quot;mb-0&quot;&gt;Rueda Libre · Ideas para rodar&lt;/p&gt;
+    &lt;a href=&quot;#contenido&quot;&gt;Volver al contenido&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/footer&gt;</code></pre><p><code>flex-wrap</code> permite que los enlaces pasen a otra línea si falta espacio. Los enlaces internos se conectan con los ID que ya definiste. Comprueba con Tab y Shift + Tab que el foco sigue un orden comprensible.</p>
+</section>
+<section id="s13"><h2>14. Lee las reglas con DevTools</h2>
+<p>Selecciona una columna y abre Styles. Busca la regla de <code>col-sm-6</code>; desde 576 px asigna la mitad del ancho. En Computed comprueba el ancho final. Desactiva temporalmente una declaración y observa el resultado; recarga para recuperar tus clases originales.</p>
+<div class="tabla-scroll"><table><tr><th>Síntoma</th><th>Qué inspeccionar</th></tr><tr><td>Columnas apiladas a 1000 px</td><td>Carga del CSS, presencia de row y clases exactas en sus hijos directos</td></tr><tr><td>Separaciones inesperadas</td><td>Diferencia entre g-* de la fila, gap-* del artículo y p-* del interior</td></tr><tr><td>Fondo amarillo sin texto oscuro</td><td>bg-warning cambia el fondo; text-dark cambia el texto</td></tr><tr><td>Botones a distintas alturas</td><td>h-100, d-flex flex-column y mt-auto dentro de cada artículo</td></tr></table></div>
+<p>Una declaración tachada perdió en la cascada. Para comparar selectores, considera importancia, capas, especificidad y orden. El color puede heredarse de un padre; padding y background no se heredan por defecto.</p><p>Registra tres observaciones reales. Si no encontraste un conflicto, explica una regla calculada que comprobaste.</p>
+</section>
+<section id="s14"><h2>15. Añade una comparación en proporción 8/4</h2>
+<p>Añade este fragmento al final de <code>main</code>, después de la llamada a la acción. Los datos pertenecen a las propuestas nuevas de esta práctica.</p><pre><code>&lt;section class=&quot;row g-4 mb-5&quot; aria-labelledby=&quot;tarifas-titulo&quot;&gt;
+  &lt;div class=&quot;col-12 col-lg-8&quot;&gt;
+    &lt;h2 id=&quot;tarifas-titulo&quot;&gt;Compara opciones&lt;/h2&gt;
+    &lt;div class=&quot;overflow-auto&quot;&gt;
+      &lt;table class=&quot;table&quot;&gt;
+        &lt;caption&gt;Duración y nivel de las propuestas&lt;/caption&gt;
+        &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Plan&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Duración&lt;/th&gt;&lt;th scope=&quot;col&quot;&gt;Nivel&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Primer paseo urbano&lt;/th&gt;&lt;td&gt;1 hora&lt;/td&gt;&lt;td&gt;Suave&lt;/td&gt;&lt;/tr&gt;
+          &lt;tr&gt;&lt;th scope=&quot;row&quot;&gt;Camino de grava&lt;/th&gt;&lt;td&gt;3 horas&lt;/td&gt;&lt;td&gt;Intermedio&lt;/td&gt;&lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;aside class=&quot;col-12 col-lg-4&quot;&gt;
+    &lt;h2 class=&quot;fs-4&quot;&gt;Elige a tu ritmo&lt;/h2&gt;
+    &lt;p&gt;Compara duración y nivel antes de elegir una experiencia.&lt;/p&gt;
+  &lt;/aside&gt;
+&lt;/section&gt;</code></pre><p>La tabla ocupa ocho partes y el bloque lateral cuatro desde lg, es decir 992 px. Antes, ambos se apilan. <code>scope</code> identifica qué celdas describe cada encabezado; <code>caption</code> nombra la tabla. <code>overflow-auto</code> contiene un posible desplazamiento dentro de ese bloque.</p>
+</section>
+<section id="s15"><h2>16. Añade un formulario de consulta</h2>
+<p>Añade este fragmento al final de <code>main</code>, después de la comparación. Al crearse <code>id="consulta"</code>, ya funcionan los enlaces de las tarjetas y del menú.</p><pre><code>&lt;section id=&quot;consulta&quot; class=&quot;row g-4&quot; aria-labelledby=&quot;consulta-titulo&quot;&gt;
+  &lt;div class=&quot;col-12 col-md-8&quot;&gt;
+    &lt;h2 id=&quot;consulta-titulo&quot;&gt;Consulta tus opciones&lt;/h2&gt;
+    &lt;form action=&quot;#consulta&quot; method=&quot;get&quot; class=&quot;d-flex flex-column gap-3&quot;&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;plan&quot; class=&quot;d-block fw-semibold&quot;&gt;Tipo de salida&lt;/label&gt;
+        &lt;select id=&quot;plan&quot; name=&quot;plan&quot; required class=&quot;w-100 p-2 border rounded&quot;&gt;
+          &lt;option value=&quot;&quot;&gt;Elige una opción&lt;/option&gt;
+          &lt;option value=&quot;urbano&quot;&gt;Paseo urbano&lt;/option&gt;
+          &lt;option value=&quot;grava&quot;&gt;Camino de grava&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/div&gt;
+      &lt;div&gt;
+        &lt;label for=&quot;cantidad&quot; class=&quot;d-block fw-semibold&quot;&gt;Cantidad de bicicletas&lt;/label&gt;
+        &lt;input id=&quot;cantidad&quot; name=&quot;cantidad&quot; type=&quot;number&quot; min=&quot;1&quot; max=&quot;6&quot; step=&quot;1&quot;
+          required class=&quot;w-100 p-2 border rounded&quot; aria-describedby=&quot;cantidad-ayuda&quot;&gt;
+        &lt;p id=&quot;cantidad-ayuda&quot; class=&quot;mb-0&quot;&gt;Elige entre 1 y 6 bicicletas completas.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;button type=&quot;submit&quot; class=&quot;align-self-start p-2 border rounded bg-warning text-dark&quot;&gt;
+        Consultar opciones
+      &lt;/button&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;aside class=&quot;col-12 col-md-4&quot;&gt;
+    &lt;h2 class=&quot;fs-4&quot;&gt;Observa el resultado&lt;/h2&gt;
+    &lt;p&gt;Prueba dejar una opción vacía o escribir una cantidad fuera del rango.&lt;/p&gt;
+  &lt;/aside&gt;
+&lt;/section&gt;</code></pre><p>El formulario y el bloque lateral ocupan ocho y cuatro partes desde md. Las clases de espaciado y borde permiten observar las cajas de los controles; la validación proviene de sus atributos HTML.</p>
+</section>
+<section id="s16"><h2>17. Explica la validación y la URL</h2>
+<p><code>required</code> exige un valor; <code>min</code> y <code>max</code> fijan límites; <code>step="1"</code> admite pasos enteros desde la base del intervalo. <code>for</code> conecta el label con el id del control. <code>aria-describedby</code> conecta la ayuda adicional.</p><p>Prueba con selección vacía y cantidades 0, 7 y 1.5; el navegador debe señalar el control que requiere atención. Después elige un plan y una cantidad válida.</p><p>Con <code>method="get"</code>, el navegador coloca los valores de los controles que tienen <code>name</code> en la URL. Por ejemplo, una consulta válida puede terminar en <code>?plan=urbano&amp;cantidad=2#consulta</code>. Observa la relación entre name, value y la dirección. El fragmento <code>#consulta</code> sitúa la página en esa sección.</p>
+</section>
+<section id="s17"><h2>18. Comprueba el resultado</h2>
+<div class="tabla-scroll"><table><tr><th>Prueba</th><th>Resultado esperado</th></tr><tr><td>Catálogo a 575 / 576 px</td><td>Una / dos propuestas por fila</td></tr><tr><td>Catálogo a 991 / 992 px</td><td>Dos / tres propuestas por fila</td></tr><tr><td>Catálogo a 1199 / 1200 px</td><td>Tres / cuatro propuestas por fila</td></tr><tr><td>Portada y formulario a 767 / 768 px</td><td>Apilados / dos columnas</td></tr><tr><td>Beneficios a 576 / 992 px</td><td>Dos / cuatro por fila</td></tr><tr><td>Comparación a 991 / 992 px</td><td>Apilada / proporción 8/4</td></tr><tr><td>Tab y Shift + Tab</td><td>Foco visible y acceso a enlaces y controles</td></tr><tr><td>Network</td><td>CSS e imágenes sin rutas 404</td></tr></table></div><p>En DevTools usa píxeles CSS del viewport. Guarda capturas a 360, 768 y 1280 px, y acompaña cada una con una observación. Revisa los enlaces a #catalogo, #beneficios, #consulta y #contenido.</p>
+</section>
+<section id="s18"><h2>19. Escribe lo que resolviste en tu diario</h2>
+<p>Completa <code>bitacora.txt</code> mientras trabajas: problema observado, causa, cambio aplicado y resultado. Compara el CSS del sitio de referencia con las clases que usaste en la página nueva.</p><pre><code>Fecha y archivo de trabajo:
+Qué quería conseguir:
+Qué construí hoy:
+Problema u observación:
+Clase o atributo que lo explica:
+Cómo lo comprobé:
+Qué aprendí y qué probaría después:</code></pre><p>El CSS original se conserva, así que su reducción de líneas no es una medida de esta actividad. Puedes registrar el tiempo de tu página nueva y las clases utilizadas. Para comparar tiempos entre dos soluciones se necesita un alcance equivalente y mediciones de ambas.</p>
+</section>
+<section id="s19"><h2>20. Guarda y publica tu página</h2>
+<p>Revisa los cambios y guarda un commit con una descripción concreta:</p><pre><code>git status
+git diff
+git add pruebas/catalogo-bootstrap.html bitacora.txt evidencias/
+git commit -m &quot;Crea la página de experiencias con Bootstrap&quot;
+git push origin main</code></pre><p>Ejecuta el push sobre tu propio repositorio con <code>origin</code> configurado. Si aún no lo conectaste, crea uno en tu cuenta y sigue las instrucciones que GitHub muestra para un repositorio existente.</p><p>En Settings → Pages, selecciona Deploy from a branch, rama main y carpeta / (root). Espera que el despliegue figure como completado en Actions.</p><p><strong>La URL raíz abre index.html.</strong> Para ver tu archivo nuevo, añade <code>pruebas/catalogo-bootstrap.html</code> a la URL raíz de Pages. Ejemplo: <code>https://TU-USUARIO.github.io/TU-REPO/pruebas/catalogo-bootstrap.html</code>. Sustituye usuario y repositorio por los tuyos.</p><p>Abre esa dirección y comprueba el título, las fotos y la grilla. Los nombres de archivo deben respetar mayúsculas y extensión: <code>urbana.jpg</code> y <code>Urbana.jpg</code> pueden referirse a archivos distintos en el servidor.</p>
+</section>
+<section id="s20"><h2>21. Si algo falla, busca la causa</h2>
+<div class="tabla-scroll"><table><tr><th>Problema</th><th>Revisión</th></tr><tr><td>HTML sin estilo</td><td>Enlace CDN y descarga de bootstrap.min.css</td></tr><tr><td>Columnas inesperadas</td><td>row, hijos col-* y ancho exacto del viewport</td></tr><tr><td>Imagen rota</td><td>../img/, extensión JPG, nombre exacto y archivo presente</td></tr><tr><td>Un enlace interno no desplaza</td><td>id único y coincidencia con href="#..."</td></tr><tr><td>Desborde horizontal</td><td>row dentro de container, fotos fluidas y tabla dentro de overflow-auto</td></tr><tr><td>Solo aparece el sitio original en Pages</td><td>Añade pruebas/catalogo-bootstrap.html a la URL y verifica el commit del despliegue</td></tr></table></div>
+<h3>Explica con tus palabras</h3><p>¿Por qué col-lg-4 permite tres propuestas por fila? ¿Qué clase decide el ancho a 800 px? ¿Qué diferencia existe entre p-3, gap-3 y g-3? ¿Por qué las fotos usan ../img/ desde pruebas/?</p><details><summary>Ver una explicación de referencia</summary><p>Cuatro de doce partes es un tercio. A 800 px sigue vigente col-sm-6 porque todavía no se alcanza lg. p-3 asigna padding; gap-3 separa elementos de un contenedor flex o grid; g-3 configura los gutters de las columnas Bootstrap. ../ sube desde pruebas/ hasta la carpeta que contiene img/.</p></details>
+</section>
+<section id="s21"><h2>22. Cierre de la práctica y fuentes</h2>
+<p>Tu entrega contiene una página nueva con siete propuestas, cuatro beneficios, una llamada a la acción, una portada, navegación, comparación y consulta. Adjunta el diario y capturas que expliquen el resultado.</p><p>Para acompañar la clase: primero predigan las columnas a un ancho concreto; después prueben una utilidad de espaciado; finalmente cada coder explica un cambio usando Styles o Computed. Los errores que aparezcan sirven para practicar el diagnóstico.</p><p>Esta es una adaptación del caso Rueda Libre a una actividad de creación independiente. Para profundizar consulta las fuentes técnicas:</p>
+<ul><li><a href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap 5.3: instalación y recursos</a></li><li><a href="https://getbootstrap.com/docs/5.3/layout/grid/">Grilla</a> y <a href="https://getbootstrap.com/docs/5.3/layout/breakpoints/">breakpoints</a></li><li><a href="https://getbootstrap.com/docs/5.3/utilities/spacing/">Espaciado</a> y <a href="https://getbootstrap.com/docs/5.3/utilities/flex/">Flexbox</a></li><li><a href="https://developer.mozilla.org/es/docs/Web/HTML/Reference/Elements/form">Formularios HTML</a></li></ul>
+</section>
+</main></body></html>
